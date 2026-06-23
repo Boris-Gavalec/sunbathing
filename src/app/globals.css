@@ -1,22 +1,75 @@
 @import "tailwindcss";
 
+/* ============================================
+   SUNBATHING THEME - Color Configuration
+   ============================================
+   To change the site's color scheme, edit the
+   CSS custom properties below. Each variable
+   controls a specific part of the design.
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Page background - the main page color */
+  --background: #FFF8F0;
+  /* Primary text color */
+  --foreground: #5C4033;
+
+  /* Primary accent - buttons, highlights, links */
+  --primary: #E8943A;
+  /* Primary hover state */
+  --primary-hover: #D4802A;
+
+  /* Secondary accent - badges, decorative elements */
+  --secondary: #F5C563;
+
+  /* Card/panel surfaces */
+  --surface: #FFFFFF;
+  /* Surface hover state */
+  --surface-hover: #FFF1E0;
+
+  /* Muted/secondary text */
+  --text-muted: #8B7355;
+
+  /* Borders */
+  --border: rgba(92, 64, 51, 0.12);
+
+  /* Cool accent - contrast elements, links */
+  --accent: #4A9EBF;
+
+  /* Box shadows */
+  --shadow: rgba(232, 148, 58, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1A1410;
+    --foreground: #F5E6D3;
+    --primary: #F0A54A;
+    --primary-hover: #E8943A;
+    --secondary: #D4A843;
+    --surface: #2A2018;
+    --surface-hover: #3A3028;
+    --text-muted: #C4A882;
+    --border: rgba(245, 230, 211, 0.12);
+    --accent: #6BB8D4;
+    --shadow: rgba(240, 165, 74, 0.1);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-shadow: var(--shadow);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
