@@ -12,6 +12,7 @@ import {
 } from "recharts";
 import type { UvDataPoint } from "@/lib/dose";
 import { interpolateUv } from "@/lib/dose";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface UvChartProps {
   uvData: UvDataPoint[];
@@ -29,25 +30,40 @@ function formatHourLabel(hour: number): string {
 }
 
 const SESSION_COLOR = "#06b6d4";
-const REFERENCE_COLOR = "#e2e8f0";
 
-function CustomLegend() {
+const THEME_COLORS = {
+  light: {
+    grid: "#e2e8f0",
+    tick: "#64748b",
+    axis: "#e2e8f0",
+    tooltipBg: "#ffffff",
+    tooltipBorder: "#e2e8f0",
+    tooltipText: "#1e293b",
+    legend: "#64748b",
+    reference: "#94a3b8",
+  },
+  dark: {
+    grid: "#1e3048",
+    tick: "#7d8fa3",
+    axis: "#1e3048",
+    tooltipBg: "#162032",
+    tooltipBorder: "#1e3048",
+    tooltipText: "#e2e8f0",
+    legend: "#7d8fa3",
+    reference: "#e2e8f0",
+  },
+};
+
+function CustomLegend({ legendColor }: { legendColor: string }) {
   const items = [
     { color: "#f97316", label: "UV index" },
     { color: SESSION_COLOR, label: "session" },
-    { color: REFERENCE_COLOR, label: "selected time", dashed: true },
   ];
   return (
-    <div className="flex justify-end gap-4 text-[11px] mb-1" style={{ color: "#7d8fa3" }}>
+    <div className="flex justify-end gap-4 text-[11px] mb-1" style={{ color: legendColor }}>
       {items.map((item) => (
         <div key={item.label} className="flex items-center gap-1.5">
-          {item.dashed ? (
-            <svg width="14" height="10">
-              <line x1="0" y1="5" x2="14" y2="5" stroke={item.color} strokeWidth="2" strokeDasharray="3 2" />
-            </svg>
-          ) : (
-            <span className="inline-block w-3 h-3 rounded-sm" style={{ background: item.color }} />
-          )}
+          <span className="inline-block w-3 h-3 rounded-sm" style={{ background: item.color }} />
           <span>{item.label}</span>
         </div>
       ))}
@@ -61,6 +77,9 @@ export default function UvChart({
   endHour,
   isEstimated,
 }: UvChartProps) {
+  const { theme } = useTheme();
+  const c = THEME_COLORS[theme];
+
   const filtered = uvData.filter((d) => d.hour >= 5 && d.hour <= 21);
 
   const syntheticPoints: UvDataPoint[] = [];
@@ -95,7 +114,7 @@ export default function UvChart({
           )}
         </div>
       </div>
-      <CustomLegend />
+      <CustomLegend legendColor={c.legend} />
       <div className="h-72 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
@@ -114,36 +133,36 @@ export default function UvChart({
                 <stop offset="100%" stopColor={SESSION_COLOR} stopOpacity={0.03} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1e3048" />
+            <CartesianGrid strokeDasharray="3 3" stroke={c.grid} />
             <XAxis
               dataKey="hour"
               type="number"
               domain={[5, 21]}
               tickFormatter={(h: number) => formatHourLabel(h)}
-              tick={{ fontSize: 10, fill: "#7d8fa3" }}
-              axisLine={{ stroke: "#1e3048" }}
-              tickLine={{ stroke: "#1e3048" }}
+              tick={{ fontSize: 10, fill: c.tick }}
+              axisLine={{ stroke: c.axis }}
+              tickLine={{ stroke: c.axis }}
               ticks={[5, 7, 9, 11, 13, 15, 17, 19, 21]}
             />
             <YAxis
               domain={[0, "auto"]}
-              tick={{ fontSize: 10, fill: "#7d8fa3" }}
-              axisLine={{ stroke: "#1e3048" }}
-              tickLine={{ stroke: "#1e3048" }}
+              tick={{ fontSize: 10, fill: c.tick }}
+              axisLine={{ stroke: c.axis }}
+              tickLine={{ stroke: c.axis }}
               label={{
                 value: "UV Index",
                 angle: -90,
                 position: "insideLeft",
-                style: { fontSize: 10, fill: "#7d8fa3" },
+                style: { fontSize: 10, fill: c.tick },
               }}
             />
             <Tooltip
               contentStyle={{
-                background: "#162032",
-                border: "1px solid #1e3048",
+                background: c.tooltipBg,
+                border: `1px solid ${c.tooltipBorder}`,
                 borderRadius: "8px",
                 fontSize: "12px",
-                color: "#e2e8f0",
+                color: c.tooltipText,
               }}
               formatter={(value, name) => {
                 if (value == null) return [null, null];
@@ -171,13 +190,13 @@ export default function UvChart({
             />
             <ReferenceLine
               x={startHour}
-              stroke={REFERENCE_COLOR}
+              stroke={c.reference}
               strokeWidth={1.5}
               strokeDasharray="4 4"
             />
             <ReferenceLine
               x={endHour}
-              stroke={REFERENCE_COLOR}
+              stroke={c.reference}
               strokeWidth={1.5}
               strokeDasharray="4 4"
             />

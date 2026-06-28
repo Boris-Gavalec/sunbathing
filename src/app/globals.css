@@ -1,6 +1,30 @@
 @import "tailwindcss";
 
-:root {
+/* ── Light theme (default) ── */
+:root,
+[data-theme="light"] {
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --accent: #f59e0b;
+  --accent-dim: #d97706;
+  --text-secondary: #64748b;
+  --accent-card-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  --accent-card-border: #fcd34d;
+  --input-overlay-bg: rgba(0, 0, 0, 0.05);
+  --input-muted-bg: rgba(0, 0, 0, 0.03);
+  --progress-track: rgba(0, 0, 0, 0.08);
+  --quick-start-bg: rgba(0, 0, 0, 0.03);
+  --tooltip-bg: #f1f5f9;
+  --tooltip-border: #cbd5e1;
+  --tooltip-color: #475569;
+  --slider-track: #cbd5e1;
+  --accent-btn-text: #ffffff;
+}
+
+/* ── Dark theme (original) ── */
+[data-theme="dark"] {
   --background: #0f1729;
   --foreground: #e2e8f0;
   --card-bg: #162032;
@@ -8,6 +32,17 @@
   --accent: #4ade80;
   --accent-dim: #22c55e;
   --text-secondary: #7d8fa3;
+  --accent-card-bg: linear-gradient(135deg, #162032 0%, #0f2a1f 100%);
+  --accent-card-border: #1a4a2e;
+  --input-overlay-bg: rgba(255, 255, 255, 0.08);
+  --input-muted-bg: rgba(255, 255, 255, 0.05);
+  --progress-track: rgba(255, 255, 255, 0.06);
+  --quick-start-bg: rgba(255, 255, 255, 0.04);
+  --tooltip-bg: #1e293b;
+  --tooltip-border: #334155;
+  --tooltip-color: #cbd5e1;
+  --slider-track: #2a3a52;
+  --accent-btn-text: #1a1a2e;
 }
 
 @theme inline {
@@ -50,21 +85,21 @@
 }
 
 .input-overlay {
-  background: rgba(255,255,255,0.08);
+  background: var(--input-overlay-bg);
   border: 1px solid var(--accent);
   color: var(--foreground);
 }
 
 .input-muted {
-  background: rgba(255,255,255,0.05);
+  background: var(--input-muted-bg);
   border: 1px solid var(--card-border);
   color: var(--foreground);
 }
 
 .info-tooltip {
-  background: #1e293b;
-  border: 1px solid #334155;
-  color: #cbd5e1;
+  background: var(--tooltip-bg);
+  border: 1px solid var(--tooltip-border);
+  color: var(--tooltip-color);
 }
 
 body {
@@ -84,7 +119,7 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-track {
   height: 6px;
   border-radius: 3px;
-  background: #2a3a52;
+  background: var(--slider-track);
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -96,13 +131,17 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--accent);
   border: 2px solid #fff;
   margin-top: -8px;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+[data-theme="dark"] input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
 }
 
 input[type="range"]::-moz-range-track {
   height: 6px;
   border-radius: 3px;
-  background: #2a3a52;
+  background: var(--slider-track);
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -111,10 +150,32 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   background: var(--accent);
   border: 2px solid #fff;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+[data-theme="dark"] input[type="range"]::-moz-range-thumb {
   box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
 }
 
-/* ── Landing page (light theme) ── */
+/* ── Mobile: bigger slider tap targets ── */
+@media (max-width: 767px) {
+  input[type="range"] {
+    height: 32px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+    margin-top: -11px;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ── Landing page ── */
 .landing-page {
   min-height: 100vh;
   background: #f0f4f8;

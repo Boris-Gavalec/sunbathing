@@ -181,7 +181,7 @@ export default function InputPanel({
               onClick={() => applyQuickStart(qs.skinType, qs.spf, qs.uvIndex)}
               className="w-full text-left px-3 py-2 rounded-md text-[11px] transition-all hover:brightness-125"
               style={{
-                background: "rgba(255,255,255,0.04)",
+                background: "var(--quick-start-bg)",
                 border: "1px solid var(--card-border)",
                 color: "var(--text-secondary)",
               }}
@@ -207,7 +207,7 @@ export default function InputPanel({
               onClick={() => setSkinType(st.type)}
               className="flex-1 h-9 rounded-md text-xs font-bold transition-all"
               style={{
-                background: skinType === st.type ? st.color : "rgba(255,255,255,0.05)",
+                background: skinType === st.type ? st.color : "var(--quick-start-bg)",
                 color: skinType === st.type ? (st.type <= 2 ? "#1a1a2e" : "#fff") : "var(--text-secondary)",
                 border: skinType === st.type ? "2px solid var(--accent)" : "1px solid var(--card-border)",
               }}
@@ -271,8 +271,8 @@ export default function InputPanel({
               }}
               className="flex-1 min-w-0 px-1 py-1.5 rounded-md text-[11px] font-bold transition-all text-center"
               style={{
-                background: activeUvPreset?.value === preset.value ? "var(--accent)" : "rgba(255,255,255,0.05)",
-                color: activeUvPreset?.value === preset.value ? "#1a1a2e" : "var(--text-secondary)",
+                background: activeUvPreset?.value === preset.value ? "var(--accent)" : "var(--quick-start-bg)",
+                color: activeUvPreset?.value === preset.value ? "var(--accent-btn-text)" : "var(--text-secondary)",
                 border: activeUvPreset?.value === preset.value ? "2px solid var(--accent)" : "1px solid var(--card-border)",
               }}
             >
@@ -324,7 +324,7 @@ export default function InputPanel({
                 if (!isNaN(val) && val > 0) setManualUvIndex(Math.min(20, val));
               }}
               className="px-3 py-1.5 rounded text-xs font-bold"
-              style={{ background: "var(--accent)", color: "#1a1a2e" }}
+              style={{ background: "var(--accent)", color: "var(--accent-btn-text)" }}
             >
               Set
             </button>

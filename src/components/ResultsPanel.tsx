@@ -79,7 +79,7 @@ export default function ResultsPanel({
           className="w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all hover:brightness-110"
           style={{
             background: "var(--accent)",
-            color: "#1a1a2e",
+            color: "var(--accent-btn-text)",
           }}
         >
           Set a {timerLabel} timer
