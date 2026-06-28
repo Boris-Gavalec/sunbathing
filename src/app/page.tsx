@@ -30,6 +30,9 @@ const cards = [
 export default function LandingPage() {
   return (
     <div className="landing-page">
+      <style>{`
+        body { background: #f0f4f8 !important; }
+      `}</style>
       <main className="landing-main">
         <div className="landing-sun">🌞</div>
         <h1 className="landing-title">Sunbathing</h1>
@@ -52,7 +55,7 @@ export default function LandingPage() {
           <Link href="/calculator" className="btn-primary">
             Start Your Session
           </Link>
-          <Link href="/calculator#info" className="btn-outline">
+          <Link href="/calculator" className="btn-outline">
             Learn More
           </Link>
         </div>
