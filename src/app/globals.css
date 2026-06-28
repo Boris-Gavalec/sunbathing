@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
-/* ── Light theme (default) ── */
+/* ── Light theme (default) — warm cream + amber + forest green palette ── */
 :root,
 [data-theme="light"] {
-  --background: #f8fafc;
-  --foreground: #1e293b;
+  --background: #f7f3ec;
+  --foreground: #1a1a14;
   --card-bg: #ffffff;
-  --card-border: #e2e8f0;
-  --accent: #f59e0b;
-  --accent-dim: #d97706;
-  --text-secondary: #64748b;
-  --accent-card-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  --accent-card-border: #fcd34d;
-  --input-overlay-bg: rgba(0, 0, 0, 0.05);
-  --input-muted-bg: rgba(0, 0, 0, 0.03);
-  --progress-track: rgba(0, 0, 0, 0.08);
-  --quick-start-bg: rgba(0, 0, 0, 0.03);
-  --tooltip-bg: #f1f5f9;
-  --tooltip-border: #cbd5e1;
-  --tooltip-color: #475569;
-  --slider-track: #cbd5e1;
+  --card-border: #e3d8cb;
+  --accent: #e8890a;
+  --accent-dim: #c97000;
+  --text-secondary: #7c6c5a;
+  --primary: #2d4a32;
+  --primary-text: #ffffff;
+  --accent-card-bg: linear-gradient(135deg, #fff4e0 0%, #ffe9a8 100%);
+  --accent-card-border: #f0c050;
+  --input-overlay-bg: rgba(0, 0, 0, 0.06);
+  --input-muted-bg: rgba(0, 0, 0, 0.04);
+  --progress-track: rgba(0, 0, 0, 0.09);
+  --quick-start-bg: rgba(0, 0, 0, 0.04);
+  --tooltip-bg: #f5f0e8;
+  --tooltip-border: #d4c4b0;
+  --tooltip-color: #5a4e42;
+  --slider-track: #d4c4b0;
   --accent-btn-text: #ffffff;
 }
 
@@ -32,6 +34,8 @@
   --accent: #4ade80;
   --accent-dim: #22c55e;
   --text-secondary: #7d8fa3;
+  --primary: #4ade80;
+  --primary-text: #1a1a2e;
   --accent-card-bg: linear-gradient(135deg, #162032 0%, #0f2a1f 100%);
   --accent-card-border: #1a4a2e;
   --input-overlay-bg: rgba(255, 255, 255, 0.08);
