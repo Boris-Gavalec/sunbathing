@@ -353,3 +353,37 @@ input[type="range"]::-moz-range-thumb {
   border-top: 1px solid var(--card-border);
   margin-bottom: 16px;
 }
+
+.landing-about {
+  margin-top: 40px;
+  border-top: 1px solid var(--card-border);
+  padding-top: 32px;
+}
+
+.landing-about-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0 0 12px;
+  letter-spacing: -0.3px;
+}
+
+.landing-about p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0 0 16px;
+}
+
+.landing-about p strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.landing-about h2 + p {
+  margin-top: 0;
+}
+
+.landing-about h2:not(:first-child) {
+  margin-top: 28px;
+}
