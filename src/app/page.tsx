@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useTheme } from "@/components/ThemeProvider";
 
+// Page title / description are set in layout.tsx root metadata
+
 const cards = [
   {
     emoji: "🍩",
@@ -47,10 +49,10 @@ export default function LandingPage() {
       </nav>
 
       <main className="landing-main">
-        <h1 className="landing-title">Sunbathing</h1>
+        <h1 className="landing-title">Sunbathing Calculator</h1>
         <p className="landing-subtitle">
-          Your guide to soaking up the sun safely and making the most of every
-          golden hour.
+          Find out exactly how long you can safely stay in the sun based on your
+          skin type, SPF sunscreen, and real-time UV index — in under 10 seconds.
         </p>
 
         <div className="landing-grid">
@@ -65,12 +67,24 @@ export default function LandingPage() {
 
         <div className="landing-actions">
           <Link href="/calculator" className="btn-primary">
-            Start Your Session
+            Open Calculator
           </Link>
-          <Link href="/calculator" className="btn-outline">
-            Learn More
+          <Link href="/calculator#how-it-works" className="btn-outline">
+            How It Works
           </Link>
         </div>
+
+        <nav aria-label="Site links" className="mt-8 flex flex-wrap gap-4 text-xs" style={{ color: "var(--text-secondary)" }}>
+          <Link href="/calculator" style={{ color: "var(--accent)" }} className="hover:underline">
+            Calculator
+          </Link>
+          <Link href="/calculator#how-it-works" style={{ color: "var(--accent)" }} className="hover:underline">
+            How It Works
+          </Link>
+          <Link href="/calculator#faq" style={{ color: "var(--accent)" }} className="hover:underline">
+            FAQ
+          </Link>
+        </nav>
       </main>
 
       <footer className="landing-footer">
