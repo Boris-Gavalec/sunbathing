@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Enter your Fitzpatrick skin type, SPF value, and UV index to calculate your maximum safe sunbathing time. Live UV data from Open-Meteo.",
   alternates: {
-    canonical: "https://sunbathingcalculator.com/calculator",
+    canonical: "https://calcsuite.app/calculator",
   },
 };
 

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "UV protection",
   ],
   alternates: {
-    canonical: "https://sunbathingcalculator.com",
+    canonical: "https://calcsuite.app",
   },
   openGraph: {
     title: "Sunbathing Calculator — Safe Sun Exposure Time by Skin Type & SPF",
