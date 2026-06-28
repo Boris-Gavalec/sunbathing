@@ -18,6 +18,19 @@ function todayString(): string {
   return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}`;
 }
 
+function generateSyntheticUvCurve(peakUv: number): UvDataPoint[] {
+  const points: UvDataPoint[] = [];
+  for (let h = 5; h <= 21; h += 0.5) {
+    // Gaussian bell curve: rises from 5 AM, peaks at 12:30, drops to 0 by 9 PM
+    const normalized = Math.exp(-Math.pow((h - 12.5) / 3.8, 2));
+    const uv = Math.max(0, peakUv * normalized);
+    points.push({ hour: h, uvIndex: Math.round(uv * 10) / 10 });
+  }
+  return points;
+}
+
+const DEFAULT_UV = 5;
+
 export default function Calculator() {
   const [skinType, setSkinType] = useState(2);
   const [spf, setSpf] = useState(1);
@@ -25,11 +38,12 @@ export default function Calculator() {
   const [lon, setLon] = useState<number | null>(null);
   const [startHour, setStartHour] = useState(12);
   const [durationMinutes, setDurationMinutes] = useState(60);
-  const [manualUvIndex, setManualUvIndex] = useState<number | null>(5);
+  const [manualUvIndex, setManualUvIndex] = useState<number | null>(DEFAULT_UV);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const [uvData, setUvData] = useState<UvDataPoint[]>([]);
+  const [uvData, setUvData] = useState<UvDataPoint[]>(() => generateSyntheticUvCurve(DEFAULT_UV));
   const [isEstimated, setIsEstimated] = useState(false);
+  const [isSynthetic, setIsSynthetic] = useState(true);
   const [locationLoading, setLocationLoading] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
 
@@ -43,6 +57,14 @@ export default function Calculator() {
     setLon(newLon);
   }, []);
 
+  // Keep synthetic curve in sync with the selected UV index (when no real location yet)
+  useEffect(() => {
+    if (lat !== null || !isSynthetic) return;
+    const peak = manualUvIndex ?? DEFAULT_UV;
+    setUvData(generateSyntheticUvCurve(peak));
+  }, [manualUvIndex, lat, isSynthetic]);
+
+  // Load real UV data when location is set
   useEffect(() => {
     if (lat === null || lon === null) return;
 
@@ -54,12 +76,14 @@ export default function Calculator() {
         if (!cancelled) {
           setUvData(data);
           setIsEstimated(false);
+          setIsSynthetic(false);
         }
       } catch {
         const fallback = estimateUvFromSolarElevation(lat!, lon!, date);
         if (!cancelled) {
           setUvData(fallback);
           setIsEstimated(true);
+          setIsSynthetic(false);
         }
       }
     }
@@ -70,7 +94,7 @@ export default function Calculator() {
     };
   }, [lat, lon, date]);
 
-  const liveUvIndex = uvData.length > 0 ? interpolateUv(uvData, startHour) : 0;
+  const liveUvIndex = !isSynthetic ? interpolateUv(uvData, startHour) : 0;
   const effectiveUvIndex = manualUvIndex ?? liveUvIndex;
 
   const skin = useMemo(() => SKIN_TYPES.find((s) => s.type === skinType)!, [skinType]);
@@ -145,7 +169,7 @@ export default function Calculator() {
               manualUvIndex={manualUvIndex}
               setManualUvIndex={setManualUvIndex}
               liveUvIndex={liveUvIndex}
-              hasLiveData={uvData.length > 0}
+              hasLiveData={!isSynthetic}
               applyQuickStart={applyQuickStart}
             />
           </div>
@@ -174,7 +198,7 @@ export default function Calculator() {
             manualUvIndex={manualUvIndex}
             setManualUvIndex={setManualUvIndex}
             liveUvIndex={liveUvIndex}
-            hasLiveData={uvData.length > 0}
+            hasLiveData={!isSynthetic}
             applyQuickStart={applyQuickStart}
           />
         </aside>
@@ -191,16 +215,15 @@ export default function Calculator() {
             maxTime={maxTime}
           />
 
-          {uvData.length > 0 && (
-            <div className="rounded-xl p-4 sm:p-5 bg-card card-border">
-              <UvChart
-                uvData={uvData}
-                startHour={startHour}
-                endHour={endHour}
-                isEstimated={isEstimated}
-              />
-            </div>
-          )}
+          <div className="rounded-xl p-4 sm:p-5 bg-card card-border">
+            <UvChart
+              uvData={uvData}
+              startHour={startHour}
+              endHour={endHour}
+              isEstimated={isEstimated}
+              isSynthetic={isSynthetic}
+            />
+          </div>
 
           <div className="rounded-xl p-4 sm:p-5 bg-card card-border">
             <ResultsPanel

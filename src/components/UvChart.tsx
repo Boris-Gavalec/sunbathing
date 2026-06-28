@@ -19,6 +19,7 @@ interface UvChartProps {
   startHour: number;
   endHour: number;
   isEstimated: boolean;
+  isSynthetic?: boolean;
 }
 
 function formatHourLabel(hour: number): string {
@@ -76,6 +77,7 @@ export default function UvChart({
   startHour,
   endHour,
   isEstimated,
+  isSynthetic = false,
 }: UvChartProps) {
   const { theme } = useTheme();
   const c = THEME_COLORS[theme];
@@ -107,7 +109,12 @@ export default function UvChart({
           <h2 className="text-base font-semibold text-foreground">
             UV irradiance · sunrise to sunset
           </h2>
-          {isEstimated && (
+          {isSynthetic && (
+            <span className="text-[10px] px-2 py-0.5 rounded mt-1 inline-block bg-[rgba(0,0,0,0.05)]" style={{ color: "var(--text-secondary)" }}>
+              Sample curve — click Check My UV to use your location
+            </span>
+          )}
+          {!isSynthetic && isEstimated && (
             <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded mt-1 inline-block bg-[rgba(234,179,8,0.15)] text-[#eab308]">
               Estimated (no live data)
             </span>
