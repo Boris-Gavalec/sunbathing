@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useTheme } from "@/components/ThemeProvider";
 
 const cards = [
   {
@@ -28,11 +31,21 @@ const cards = [
 ];
 
 export default function LandingPage() {
+  const { theme, toggle } = useTheme();
+
   return (
     <div className="landing-page">
-      <style>{`
-        body { background: #f0f4f8 !important; }
-      `}</style>
+      <nav className="landing-nav">
+        <span className="landing-nav-brand">Sunbathing</span>
+        <button
+          onClick={toggle}
+          className="landing-theme-btn"
+          title={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+        >
+          {theme === "light" ? "🌙" : "☀️"}
+        </button>
+      </nav>
+
       <main className="landing-main">
         <h1 className="landing-title">Sunbathing</h1>
         <p className="landing-subtitle">
