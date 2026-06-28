@@ -207,8 +207,8 @@ export default function InputPanel({
               onClick={() => setSkinType(st.type)}
               className="flex-1 h-9 rounded-md text-xs font-bold transition-all"
               style={{
-                background: skinType === st.type ? st.color : "var(--quick-start-bg)",
-                color: skinType === st.type ? (st.type <= 2 ? "#1a1a2e" : "#fff") : "var(--text-secondary)",
+                background: skinType === st.type ? "var(--accent)" : st.color,
+                color: skinType === st.type ? "#ffffff" : (st.type <= 2 ? "#1a1a2e" : "#fff"),
                 border: skinType === st.type ? "2px solid var(--accent)" : "1px solid var(--card-border)",
               }}
             >

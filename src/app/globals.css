@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
-/* ── Light theme (default) — warm cream + amber + forest green palette ── */
+/* ── Light theme (default) — cool gray + orange brand palette ── */
 :root,
 [data-theme="light"] {
-  --background: #f7f3ec;
+  --background: #f3f4f6;
   --foreground: #1a1a14;
   --card-bg: #ffffff;
-  --card-border: #e3d8cb;
-  --accent: #e8890a;
-  --accent-dim: #c97000;
-  --text-secondary: #7c6c5a;
-  --primary: #2d4a32;
+  --card-border: #e2e0dc;
+  --accent: #e8821c;
+  --accent-dim: #c96e10;
+  --text-secondary: #6b6560;
+  --primary: #b5481a;
   --primary-text: #ffffff;
-  --accent-card-bg: linear-gradient(135deg, #fff4e0 0%, #ffe9a8 100%);
-  --accent-card-border: #f0c050;
+  --accent-card-bg: linear-gradient(135deg, #fffde0 0%, #fef3a0 100%);
+  --accent-card-border: #f5d060;
   --input-overlay-bg: rgba(0, 0, 0, 0.06);
   --input-muted-bg: rgba(0, 0, 0, 0.04);
   --progress-track: rgba(0, 0, 0, 0.09);
   --quick-start-bg: rgba(0, 0, 0, 0.04);
-  --tooltip-bg: #f5f0e8;
-  --tooltip-border: #d4c4b0;
-  --tooltip-color: #5a4e42;
-  --slider-track: #d4c4b0;
+  --tooltip-bg: #f8f7f5;
+  --tooltip-border: #d8d4ce;
+  --tooltip-color: #4a4540;
+  --slider-track: #d0ccc6;
   --accent-btn-text: #ffffff;
 }
 
