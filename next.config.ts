@@ -5,9 +5,14 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "www.sunbathingcalculator.com" }],
-        destination: "https://sunbathingcalculator.com/:path*",
+        has: [{ type: "host", value: "www.calcsuite.app" }],
+        destination: "https://calcsuite.app/:path*",
         permanent: true,
+      },
+      {
+        source: "/",
+        destination: "/calculator",
+        permanent: false,
       },
     ];
   },
