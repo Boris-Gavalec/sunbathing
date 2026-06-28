@@ -9,11 +9,6 @@ const nextConfig: NextConfig = {
         destination: "https://calcsuite.app/:path*",
         permanent: true,
       },
-      {
-        source: "/",
-        destination: "/calculator",
-        permanent: false,
-      },
     ];
   },
 };
