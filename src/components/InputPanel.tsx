@@ -271,9 +271,9 @@ export default function InputPanel({
               }}
               className="flex-1 min-w-0 px-1 py-1.5 rounded-md text-[11px] font-bold transition-all text-center"
               style={{
-                background: activeUvPreset?.value === preset.value ? "var(--accent)" : "var(--quick-start-bg)",
-                color: activeUvPreset?.value === preset.value ? "var(--accent-btn-text)" : "var(--text-secondary)",
-                border: activeUvPreset?.value === preset.value ? "2px solid var(--accent)" : "1px solid var(--card-border)",
+                background: activeUvPreset?.value === preset.value ? "var(--primary)" : "var(--quick-start-bg)",
+                color: activeUvPreset?.value === preset.value ? "var(--primary-text)" : "var(--text-secondary)",
+                border: activeUvPreset?.value === preset.value ? "2px solid var(--primary)" : "1px solid var(--card-border)",
               }}
             >
               <span className="block leading-tight">{preset.label}</span>
@@ -324,7 +324,7 @@ export default function InputPanel({
                 if (!isNaN(val) && val > 0) setManualUvIndex(Math.min(20, val));
               }}
               className="px-3 py-1.5 rounded text-xs font-bold"
-              style={{ background: "var(--accent)", color: "var(--accent-btn-text)" }}
+              style={{ background: "var(--primary)", color: "var(--primary-text)" }}
             >
               Set
             </button>
@@ -385,8 +385,8 @@ export default function InputPanel({
         <button
           onClick={detectLocation}
           disabled={locationLoading}
-          className="w-full px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all disabled:opacity-50 border-accent bg-transparent text-accent"
-          style={{ border: "1px solid var(--accent)" }}
+          className="w-full px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all disabled:opacity-50"
+          style={{ background: "var(--primary)", color: "var(--primary-text)", border: "none" }}
         >
           {locationLoading ? "Detecting..." : "Check My UV Now"}
         </button>

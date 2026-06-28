@@ -78,8 +78,8 @@ export default function ResultsPanel({
           onClick={openTimer}
           className="w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all hover:brightness-110"
           style={{
-            background: "var(--accent)",
-            color: "var(--accent-btn-text)",
+            background: "var(--primary)",
+            color: "var(--primary-text)",
           }}
         >
           Set a {timerLabel} timer
