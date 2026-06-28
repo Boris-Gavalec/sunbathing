@@ -24,7 +24,7 @@ export default function MedProgressBar({ current, max, label }: ProgressBarProps
           {percentage.toFixed(0)}%
         </span>
       </div>
-      <div className="h-2.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
+      <div className="h-2.5 rounded-full overflow-hidden" style={{ background: "var(--progress-track)" }}>
         <div
           className="h-full rounded-full transition-all duration-500"
           style={{ width: `${percentage}%`, background: barColor }}

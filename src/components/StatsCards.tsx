@@ -31,17 +31,17 @@ export default function StatsCards({
       <div
         className="rounded-xl px-5 py-4 col-span-2 lg:col-span-1"
         style={{
-          background: "linear-gradient(135deg, #162032 0%, #0f2a1f 100%)",
-          border: "1px solid #1a4a2e",
+          background: "var(--accent-card-bg)",
+          border: "1px solid var(--accent-card-border)",
         }}
       >
-        <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5" style={{ color: "#4ade80" }}>
+        <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5 text-accent">
           Max Safe Time
         </p>
-        <p className="text-4xl font-bold font-mono tracking-tight" style={{ color: "#4ade80" }}>
+        <p className="text-4xl font-bold font-mono tracking-tight text-accent">
           {formatDuration(maxTime)}
         </p>
-        <p className="text-xs mt-1" style={{ color: "#7d8fa3" }}>
+        <p className="text-xs mt-1" style={{ color: "var(--text-secondary)" }}>
           SPF {spf} · {skin.label}
         </p>
       </div>
