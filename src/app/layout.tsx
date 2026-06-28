@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sunbathing Calculator — How Long Can You Stay in the Sun?",
+  title: "Sunbathing Calculator — Safe Sun Exposure Time by Skin Type & SPF",
   description:
-    "Calculate your maximum safe sun exposure time based on skin type, SPF sunscreen, and UV index. Get real-time UV data for your location.",
+    "Calculate your maximum safe sun exposure time based on your Fitzpatrick skin type, SPF sunscreen, and real-time UV index. Free online tool.",
   keywords: [
     "sunbathing calculator",
     "sun exposure time",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: "https://sunbathingcalculator.com",
   },
   openGraph: {
-    title: "Sunbathing Calculator — How Long Can You Stay in the Sun?",
+    title: "Sunbathing Calculator — Safe Sun Exposure Time by Skin Type & SPF",
     description:
       "Calculate your maximum safe sun exposure time based on skin type, SPF, and UV index.",
     type: "website",
