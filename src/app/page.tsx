@@ -34,7 +34,6 @@ export default function LandingPage() {
         body { background: #f0f4f8 !important; }
       `}</style>
       <main className="landing-main">
-        <div className="landing-sun">🌞</div>
         <h1 className="landing-title">Sunbathing</h1>
         <p className="landing-subtitle">
           Your guide to soaking up the sun safely and making the most of every
