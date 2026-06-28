@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import InputPanel from "@/components/InputPanel";
 import ResultsPanel from "@/components/ResultsPanel";
 import StatsCards from "@/components/StatsCards";
@@ -112,6 +113,9 @@ export default function Calculator() {
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 shrink-0" />
           <div>
+            <Link href="/" className="text-xs hover:underline" style={{ color: "var(--accent)" }}>
+              ← calcsuite.app
+            </Link>
             <h1 className="text-lg font-bold tracking-tight text-foreground">
               Sunbathing Calculator
             </h1>
