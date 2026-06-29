@@ -40,7 +40,7 @@ export default function Calculator() {
   const [startHour, setStartHour] = useState(12);
   const [durationMinutes, setDurationMinutes] = useState(60);
   const [manualUvIndex, setManualUvIndex] = useState<number | null>(DEFAULT_UV);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const [uvData, setUvData] = useState<UvDataPoint[]>(() => generateSyntheticUvCurve(DEFAULT_UV));
   const [isEstimated, setIsEstimated] = useState(false);

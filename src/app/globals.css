@@ -301,6 +301,7 @@ input[type="range"]::-moz-range-thumb {
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
+  margin-bottom: 36px;
 }
 
 .btn-primary {

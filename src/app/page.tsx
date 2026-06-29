@@ -53,6 +53,15 @@ export default function LandingPage() {
           skin type, SPF sunscreen, and real-time UV index — in under 10 seconds.
         </p>
 
+        <div className="landing-actions">
+          <Link href="/calculator" className="btn-primary">
+            Open Calculator
+          </Link>
+          <Link href="/calculator#how-it-works" className="btn-outline">
+            How It Works
+          </Link>
+        </div>
+
         <div className="landing-grid">
           {cards.map((card) => (
             <div key={card.title} className="landing-card">
@@ -61,15 +70,6 @@ export default function LandingPage() {
               <p className="landing-card-desc">{card.description}</p>
             </div>
           ))}
-        </div>
-
-        <div className="landing-actions">
-          <Link href="/calculator" className="btn-primary">
-            Open Calculator
-          </Link>
-          <Link href="/calculator#how-it-works" className="btn-outline">
-            How It Works
-          </Link>
         </div>
 
         <section className="landing-about">
