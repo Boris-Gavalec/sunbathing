@@ -2,12 +2,11 @@
 
 import { useState, useEffect, useCallback, useMemo } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import InputPanel from "@/components/InputPanel";
 import ResultsPanel from "@/components/ResultsPanel";
 import StatsCards from "@/components/StatsCards";
 import EducationalInfo from "@/components/EducationalInfo";
-import { useTheme } from "@/components/ThemeProvider";
+import SiteNav from "@/components/SiteNav";
 import { fetchUvData, estimateUvFromSolarElevation } from "@/lib/uv";
 import { interpolateUv, calculateMaxTime, type UvDataPoint } from "@/lib/dose";
 import { SKIN_TYPES } from "@/lib/fitzpatrick";
@@ -47,8 +46,6 @@ export default function Calculator() {
   const [isSynthetic, setIsSynthetic] = useState(true);
   const [locationLoading, setLocationLoading] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
-
-  const { theme, toggle: toggleTheme } = useTheme();
 
   const date = todayString();
   const endHour = startHour + durationMinutes / 60;
@@ -109,36 +106,28 @@ export default function Calculator() {
 
   return (
     <>
-      <header className="border-b px-4 py-3 flex items-center justify-between border-card bg-card">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 shrink-0" />
-          <div>
-            <Link href="/" className="text-xs hover:underline" style={{ color: "var(--accent)" }}>
-              ← calcsuite.app
-            </Link>
-            <h1 className="text-lg font-bold tracking-tight text-foreground">
-              Sunbathing Calculator
-            </h1>
-            <p className="text-xs text-secondary hidden sm:block">
-              Know exactly when to get out of the sun — before your skin decides for you
-            </p>
-          </div>
+      <header className="border-b border-card bg-card">
+        <div className="px-4 pt-3">
+          <SiteNav />
         </div>
-        <div className="flex items-center gap-3">
+        <div className="px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 shrink-0" />
+            <div>
+              <h1 className="text-lg font-bold tracking-tight text-foreground">
+                Sunbathing Calculator
+              </h1>
+              <p className="text-xs text-secondary hidden sm:block">
+                Know exactly when to get out of the sun — before your skin decides for you
+              </p>
+            </div>
+          </div>
           {effectiveUvIndex > 0 && (
-            <div className="text-right hidden sm:block">
+            <div className="text-right">
               <p className="text-[10px] uppercase tracking-wider text-secondary">UV Index</p>
               <p className="text-2xl font-bold text-accent">{effectiveUvIndex.toFixed(1)}</p>
             </div>
           )}
-          <button
-            onClick={toggleTheme}
-            title={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
-            className="w-9 h-9 rounded-full flex items-center justify-center text-lg transition-all hover:scale-110"
-            style={{ background: "var(--card-border)" }}
-          >
-            {theme === "light" ? "🌙" : "☀️"}
-          </button>
         </div>
       </header>
 
@@ -208,10 +197,6 @@ export default function Calculator() {
         </aside>
 
         <div className="flex-1 p-4 sm:p-5 space-y-4 sm:space-y-5 overflow-y-auto">
-          <p className="text-center text-sm" style={{ color: "var(--text-secondary)" }}>
-            Every skin type has a limit. Find yours in 10 seconds.
-          </p>
-
           <StatsCards
             skinType={skinType}
             spf={spf}
@@ -220,20 +205,20 @@ export default function Calculator() {
           />
 
           <div className="rounded-xl p-4 sm:p-5 bg-card card-border">
+            <ResultsPanel
+              uvIndex={effectiveUvIndex}
+              maxTime={maxTime}
+              durationMinutes={durationMinutes}
+            />
+          </div>
+
+          <div className="rounded-xl p-4 sm:p-5 bg-card card-border">
             <UvChart
               uvData={uvData}
               startHour={startHour}
               endHour={endHour}
               isEstimated={isEstimated}
               isSynthetic={isSynthetic}
-            />
-          </div>
-
-          <div className="rounded-xl p-4 sm:p-5 bg-card card-border">
-            <ResultsPanel
-              uvIndex={effectiveUvIndex}
-              maxTime={maxTime}
-              durationMinutes={durationMinutes}
             />
           </div>
 
