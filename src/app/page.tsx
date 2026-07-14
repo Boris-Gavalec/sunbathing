@@ -18,6 +18,15 @@ export default function LandingPage() {
           calorie targets. No sign-up, no fluff, just answers.
         </p>
 
+        <div className="landing-actions">
+          <Link href="/calculator" className="btn-primary">
+            Open Calculator
+          </Link>
+          <Link href="/calculator#how-it-works" className="btn-outline">
+            How It Works
+          </Link>
+        </div>
+
         <div className="landing-grid">
           {CALCULATORS.map((calc) =>
             calc.comingSoon ? (
