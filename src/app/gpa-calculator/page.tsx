@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     description:
       "Calculate your semester and cumulative GPA on the 4.0 scale, with optional weighted honors and AP grades.",
     url: "https://calcsuite.app/gpa-calculator",
+    type: "website",
+    locale: "en_US",
+    siteName: "CalcSuite",
+  },
+  twitter: {
+    title: "GPA Calculator — College & High School GPA on the 4.0 Scale",
+    description:
+      "Calculate your semester and cumulative GPA on the 4.0 scale, with optional weighted honors and AP grades.",
   },
 };
 
@@ -24,6 +32,7 @@ const webAppSchema = {
   applicationCategory: "EducationalApplication",
   operatingSystem: "Any",
   url: "https://calcsuite.app/gpa-calculator",
+  image: "https://calcsuite.app/opengraph-image",
   description:
     "Calculate your semester and cumulative GPA on the 4.0 scale using letter grades and credit hours, with optional weighted honors and AP grades.",
   offers: {

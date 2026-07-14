@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://calcsuite.app"),
   title: {
-    default: "CalcSuite — Free Online Calculators",
+    default: "CalcSuite — Free BMI, GPA, Calorie & Sunbathing Calculators",
     template: "%s | CalcSuite",
   },
   description:
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     url: "https://calcsuite.app",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "CalcSuite — Free Online Calculators",
     description:
       "Free, fast online calculators — from safe sun exposure to daily calorie targets.",
@@ -59,13 +59,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-};
-
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "CalcSuite",
-  url: "https://calcsuite.app",
 };
 
 export default function RootLayout({
@@ -80,10 +73,6 @@ export default function RootLayout({
     >
       <head>
         <meta name="google-adsense-account" content="ca-pub-2636014626530848" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>{children}</ThemeProvider>

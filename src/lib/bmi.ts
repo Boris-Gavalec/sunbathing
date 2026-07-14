@@ -19,9 +19,12 @@ export const BMI_CATEGORIES: BmiCategory[] = [
   { label: "Obesity class III", min: 40, max: Infinity, color: "#b91c1c" },
 ];
 
-// Healthy range bounds (WHO "normal weight" band).
+// Healthy range bounds (WHO "normal weight" band). Kept in sync with the
+// "Normal weight" entry in BMI_CATEGORIES ([18.5, 25)) so the healthy weight
+// range always covers exactly the category a BMI is assigned to. 25 is the
+// exclusive upper bound; it is displayed conventionally as "18.5–24.9".
 export const HEALTHY_BMI_MIN = 18.5;
-export const HEALTHY_BMI_MAX = 24.9;
+export const HEALTHY_BMI_MAX = 25;
 
 // FAQ shared between the calculator UI and the FAQPage JSON-LD in the
 // /bmi-calculator route.

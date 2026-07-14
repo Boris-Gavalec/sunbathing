@@ -4,11 +4,26 @@ import SiteNav from "@/components/SiteNav";
 import { CALCULATORS, CATEGORIES } from "@/lib/calculators";
 
 export const metadata: Metadata = {
-  title: { absolute: "CalcSuite — Free Online Calculators" },
+  title: { absolute: "CalcSuite — Free BMI, GPA, Calorie & Sunbathing Calculators" },
   description:
     "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just answers.",
   alternates: {
     canonical: "https://calcsuite.app",
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "CalcSuite",
+  url: "https://calcsuite.app",
+  description:
+    "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA.",
+  publisher: {
+    "@type": "Organization",
+    name: "CalcSuite",
+    url: "https://calcsuite.app",
+    logo: "https://calcsuite.app/opengraph-image",
   },
 };
 
@@ -27,6 +42,10 @@ const itemListSchema = {
 export default function LandingPage() {
   return (
     <div className="landing-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}

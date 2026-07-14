@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     description:
       "Calculate your daily calorie needs (BMR and TDEE) and plan a cut or bulk with a projected goal date.",
     url: "https://calcsuite.app/calorie-calculator",
+    type: "website",
+    locale: "en_US",
+    siteName: "CalcSuite",
+  },
+  twitter: {
+    title: "Calorie Calculator — Daily Intake, Cutting & Bulking Planner",
+    description:
+      "Calculate your daily calorie needs (BMR and TDEE) and plan a cut or bulk with a projected goal date.",
   },
 };
 
@@ -33,6 +41,7 @@ const webAppSchema = {
   applicationCategory: "HealthApplication",
   operatingSystem: "Any",
   url: "https://calcsuite.app/calorie-calculator",
+  image: "https://calcsuite.app/opengraph-image",
   description:
     "Calculate your daily calorie needs (BMR and TDEE) and plan a cut or bulk with a target weight, pace, and projected goal date.",
   offers: {

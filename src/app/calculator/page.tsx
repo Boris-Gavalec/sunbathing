@@ -16,6 +16,14 @@ export const metadata: Metadata = {
     description:
       "Calculate your maximum safe sunbathing time from your skin type, SPF, and the live UV index.",
     url: "https://calcsuite.app/calculator",
+    type: "website",
+    locale: "en_US",
+    siteName: "CalcSuite",
+  },
+  twitter: {
+    title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
+    description:
+      "Calculate your maximum safe sunbathing time from your skin type, SPF, and the live UV index.",
   },
 };
 
@@ -91,6 +99,8 @@ const appJsonLd = {
     "Calculate your maximum safe sun exposure time based on skin type, SPF sunscreen, and UV index.",
   applicationCategory: "HealthApplication",
   operatingSystem: "Any",
+  url: "https://calcsuite.app/calculator",
+  image: "https://calcsuite.app/opengraph-image",
   offers: {
     "@type": "Offer",
     price: "0",

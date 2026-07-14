@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     description:
       "Calculate your BMI, see your WHO weight category, and find the healthy weight range for your height.",
     url: "https://calcsuite.app/bmi-calculator",
+    type: "website",
+    locale: "en_US",
+    siteName: "CalcSuite",
+  },
+  twitter: {
+    title: "BMI Calculator — Body Mass Index & Healthy Weight Range",
+    description:
+      "Calculate your BMI, see your WHO weight category, and find the healthy weight range for your height.",
   },
 };
 
@@ -24,6 +32,7 @@ const webAppSchema = {
   applicationCategory: "HealthApplication",
   operatingSystem: "Any",
   url: "https://calcsuite.app/bmi-calculator",
+  image: "https://calcsuite.app/opengraph-image",
   description:
     "Calculate your body mass index, see your WHO weight category, and find the healthy weight range for your height in metric or imperial units.",
   offers: {

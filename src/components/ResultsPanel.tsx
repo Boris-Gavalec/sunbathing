@@ -3,7 +3,6 @@
 import MedProgressBar from "./MedProgressBar";
 
 interface ResultsPanelProps {
-  uvIndex: number;
   maxTime: number;
   durationMinutes: number;
 }
@@ -18,7 +17,6 @@ function formatDuration(minutes: number): string {
 }
 
 export default function ResultsPanel({
-  uvIndex,
   maxTime,
   durationMinutes,
 }: ResultsPanelProps) {
