@@ -253,6 +253,15 @@ input[type="range"]::-moz-range-thumb {
   margin-bottom: 36px;
 }
 
+.landing-section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin: 0 0 12px;
+}
+
 @media (max-width: 480px) {
   .landing-grid {
     grid-template-columns: 1fr;
@@ -488,6 +497,16 @@ input[type="range"]::-moz-range-thumb {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--accent);
+}
+
+.site-nav-menu-header {
+  display: block;
+  padding: 8px 10px 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
 }
 
 /* ── Landing calculator cards ── */

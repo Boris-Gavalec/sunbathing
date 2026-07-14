@@ -11,6 +11,29 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://calcsuite.app/calculator",
   },
+  openGraph: {
+    title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
+    description:
+      "Calculate your maximum safe sunbathing time from your skin type, SPF, and the live UV index.",
+    url: "https://calcsuite.app/calculator",
+    type: "website",
+    locale: "en_US",
+    siteName: "CalcSuite",
+  },
+  twitter: {
+    title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
+    description:
+      "Calculate your maximum safe sunbathing time from your skin type, SPF, and the live UV index.",
+  },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "CalcSuite", item: "https://calcsuite.app" },
+    { "@type": "ListItem", position: 2, name: "Sunbathing Calculator", item: "https://calcsuite.app/calculator" },
+  ],
 };
 
 const faqJsonLd = {
@@ -76,6 +99,8 @@ const appJsonLd = {
     "Calculate your maximum safe sun exposure time based on skin type, SPF sunscreen, and UV index.",
   applicationCategory: "HealthApplication",
   operatingSystem: "Any",
+  url: "https://calcsuite.app/calculator",
+  image: "https://calcsuite.app/opengraph-image",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -93,6 +118,10 @@ export default function CalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Calculator />
 

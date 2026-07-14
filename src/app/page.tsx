@@ -1,12 +1,55 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
-import { CALCULATORS } from "@/lib/calculators";
+import { CALCULATORS, CATEGORIES } from "@/lib/calculators";
+
+export const metadata: Metadata = {
+  title: { absolute: "CalcSuite — Free BMI, GPA, Calorie & Sunbathing Calculators" },
+  description:
+    "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just answers.",
+  alternates: {
+    canonical: "https://calcsuite.app",
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "CalcSuite",
+  url: "https://calcsuite.app",
+  description:
+    "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA.",
+  publisher: {
+    "@type": "Organization",
+    name: "CalcSuite",
+    url: "https://calcsuite.app",
+    logo: "https://calcsuite.app/opengraph-image",
+  },
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "CalcSuite Calculators",
+  itemListElement: CALCULATORS.filter((c) => !c.comingSoon).map((calc, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: calc.name,
+    url: `https://calcsuite.app${calc.href}`,
+  })),
+};
 
 export default function LandingPage() {
   return (
     <div className="landing-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       <nav className="landing-nav">
         <SiteNav />
       </nav>
@@ -14,51 +57,50 @@ export default function LandingPage() {
       <main className="landing-main">
         <h1 className="landing-title">CalcSuite</h1>
         <p className="landing-subtitle">
-          Free, fast online calculators — from safe sun exposure to daily
-          calorie targets. No sign-up, no fluff, just answers.
+          Free, fast online calculators for health and education — safe sun
+          exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just
+          answers.
         </p>
 
         <div className="landing-actions">
-          <Link href="/calculator" className="btn-primary">
-            Open Calculator
-          </Link>
+          <a href="#calculators" className="btn-primary">
+            Browse Calculators
+          </a>
           <Link href="/calculator#how-it-works" className="btn-outline">
             How It Works
           </Link>
         </div>
 
-        <div className="landing-grid">
-          {CALCULATORS.map((calc) =>
-            calc.comingSoon ? (
-              <div key={calc.name} className="landing-card landing-card-soon">
-                <span className="landing-card-emoji">{calc.emoji}</span>
-                <h2 className="landing-card-title">
-                  {calc.name}
-                  <span className="landing-card-badge">Work in progress</span>
-                </h2>
-                <p className="landing-card-desc">{calc.description}</p>
+        <div id="calculators">
+          {CATEGORIES.map((category) => (
+            <section key={category.id} aria-label={category.label}>
+              <h2 className="landing-section-title">{category.label}</h2>
+              <div className="landing-grid">
+                {CALCULATORS.filter((calc) => calc.category === category.id).map((calc) =>
+                  calc.comingSoon ? (
+                    <div key={calc.name} className="landing-card landing-card-soon">
+                      <span className="landing-card-emoji">{calc.emoji}</span>
+                      <h3 className="landing-card-title">
+                        {calc.name}
+                        <span className="landing-card-badge">Work in progress</span>
+                      </h3>
+                      <p className="landing-card-desc">{calc.description}</p>
+                    </div>
+                  ) : (
+                    <Link
+                      key={calc.name}
+                      href={calc.href}
+                      className="landing-card landing-card-link"
+                    >
+                      <span className="landing-card-emoji">{calc.emoji}</span>
+                      <h3 className="landing-card-title">{calc.name}</h3>
+                      <p className="landing-card-desc">{calc.description}</p>
+                    </Link>
+                  )
+                )}
               </div>
-            ) : (
-              <Link
-                key={calc.name}
-                href={calc.href}
-                className="landing-card landing-card-link"
-              >
-                <span className="landing-card-emoji">{calc.emoji}</span>
-                <h2 className="landing-card-title">{calc.name}</h2>
-                <p className="landing-card-desc">{calc.description}</p>
-              </Link>
-            )
-          )}
-        </div>
-
-        <div className="landing-actions">
-          <Link href="/calculator" className="btn-primary">
-            Try the Sunbathing Calculator
-          </Link>
-          <Link href="/calorie-calculator" className="btn-outline">
-            Calorie Calculator
-          </Link>
+            </section>
+          ))}
         </div>
 
         <section className="landing-about">
@@ -86,6 +128,21 @@ export default function LandingPage() {
             Enter a goal weight and it maps out your target intake and projects
             the date you will reach it.
           </p>
+          <p>
+            The <strong>BMI Calculator</strong> computes your body mass index —{" "}
+            <strong>BMI = weight (kg) ÷ height (m)²</strong> — and places it in
+            the WHO weight categories, from underweight to the obesity classes.
+            It also shows the healthy weight range for your height plus extras
+            like BMI prime and the ponderal index, in metric or imperial units.
+          </p>
+          <p>
+            The <strong>GPA Calculator</strong> turns your letter grades and
+            credit hours into a grade point average on the standard US 4.0 scale
+            — <strong>GPA = Σ(grade points × credits) ÷ Σ credits</strong>. It
+            supports weighted honors and AP/IB grades and can merge this
+            semester with your prior GPA for a credit-weighted cumulative
+            result.
+          </p>
 
           <h2 className="landing-about-title">Coming Soon / Roadmap</h2>
           <p>
@@ -105,12 +162,16 @@ export default function LandingPage() {
           className="mt-8 flex flex-wrap gap-4 text-xs"
           style={{ color: "var(--text-secondary)" }}
         >
-          <Link href="/calculator" style={{ color: "var(--accent)" }} className="hover:underline">
-            Sunbathing Calculator
-          </Link>
-          <Link href="/calorie-calculator" style={{ color: "var(--accent)" }} className="hover:underline">
-            Calorie Calculator
-          </Link>
+          {CALCULATORS.filter((c) => !c.comingSoon).map((calc) => (
+            <Link
+              key={calc.href}
+              href={calc.href}
+              style={{ color: "var(--accent)" }}
+              className="hover:underline"
+            >
+              {calc.name}
+            </Link>
+          ))}
           <Link href="/calculator#how-it-works" style={{ color: "var(--accent)" }} className="hover:underline">
             How It Works
           </Link>

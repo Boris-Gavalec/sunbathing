@@ -41,9 +41,9 @@ export default function Calculator() {
   const [manualUvIndex, setManualUvIndex] = useState<number | null>(DEFAULT_UV);
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  const [uvData, setUvData] = useState<UvDataPoint[]>(() => generateSyntheticUvCurve(DEFAULT_UV));
-  const [isEstimated, setIsEstimated] = useState(false);
-  const [isSynthetic, setIsSynthetic] = useState(true);
+  // Real UV data fetched once a location is set; null means we're still showing
+  // the synthetic curve derived from the selected UV index.
+  const [fetchedUv, setFetchedUv] = useState<{ data: UvDataPoint[]; estimated: boolean } | null>(null);
   const [locationLoading, setLocationLoading] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
 
@@ -55,12 +55,15 @@ export default function Calculator() {
     setLon(newLon);
   }, []);
 
-  // Keep synthetic curve in sync with the selected UV index (when no real location yet)
-  useEffect(() => {
-    if (lat !== null || !isSynthetic) return;
-    const peak = manualUvIndex ?? DEFAULT_UV;
-    setUvData(generateSyntheticUvCurve(peak));
-  }, [manualUvIndex, lat, isSynthetic]);
+  // Synthetic curve tracks the selected UV index; used until real data loads.
+  const syntheticUvData = useMemo(
+    () => generateSyntheticUvCurve(manualUvIndex ?? DEFAULT_UV),
+    [manualUvIndex]
+  );
+
+  const isSynthetic = fetchedUv === null;
+  const uvData = fetchedUv?.data ?? syntheticUvData;
+  const isEstimated = fetchedUv?.estimated ?? false;
 
   // Load real UV data when location is set
   useEffect(() => {
@@ -71,18 +74,10 @@ export default function Calculator() {
     async function loadUv() {
       try {
         const data = await fetchUvData(lat!, lon!, date);
-        if (!cancelled) {
-          setUvData(data);
-          setIsEstimated(false);
-          setIsSynthetic(false);
-        }
+        if (!cancelled) setFetchedUv({ data, estimated: false });
       } catch {
         const fallback = estimateUvFromSolarElevation(lat!, lon!, date);
-        if (!cancelled) {
-          setUvData(fallback);
-          setIsEstimated(true);
-          setIsSynthetic(false);
-        }
+        if (!cancelled) setFetchedUv({ data: fallback, estimated: true });
       }
     }
 
@@ -206,7 +201,6 @@ export default function Calculator() {
 
           <div className="rounded-xl p-4 sm:p-5 bg-card card-border">
             <ResultsPanel
-              uvIndex={effectiveUvIndex}
               maxTime={maxTime}
               durationMinutes={durationMinutes}
             />

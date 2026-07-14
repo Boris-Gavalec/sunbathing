@@ -17,8 +17,14 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
+    // Intentional post-mount state sync: the server always renders "light" so the
+    // markup hydrates cleanly, then we read the persisted theme on the client.
+    // Initializing from localStorage during render would cause a hydration
+    // mismatch (SiteNav renders theme-dependent markup), so this must stay in an
+    // effect despite the react-hooks/set-state-in-effect lint rule.
     const stored = localStorage.getItem("theme") as Theme | null;
     const initial = stored === "dark" ? "dark" : "light";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(initial);
     document.documentElement.setAttribute("data-theme", initial);
   }, []);

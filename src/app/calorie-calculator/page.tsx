@@ -9,6 +9,29 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://calcsuite.app/calorie-calculator",
   },
+  openGraph: {
+    title: "Calorie Calculator — Daily Intake, Cutting & Bulking Planner",
+    description:
+      "Calculate your daily calorie needs (BMR and TDEE) and plan a cut or bulk with a projected goal date.",
+    url: "https://calcsuite.app/calorie-calculator",
+    type: "website",
+    locale: "en_US",
+    siteName: "CalcSuite",
+  },
+  twitter: {
+    title: "Calorie Calculator — Daily Intake, Cutting & Bulking Planner",
+    description:
+      "Calculate your daily calorie needs (BMR and TDEE) and plan a cut or bulk with a projected goal date.",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "CalcSuite", item: "https://calcsuite.app" },
+    { "@type": "ListItem", position: 2, name: "Calorie Calculator", item: "https://calcsuite.app/calorie-calculator" },
+  ],
 };
 
 const webAppSchema = {
@@ -18,6 +41,7 @@ const webAppSchema = {
   applicationCategory: "HealthApplication",
   operatingSystem: "Any",
   url: "https://calcsuite.app/calorie-calculator",
+  image: "https://calcsuite.app/opengraph-image",
   description:
     "Calculate your daily calorie needs (BMR and TDEE) and plan a cut or bulk with a target weight, pace, and projected goal date.",
   offers: {
@@ -50,6 +74,10 @@ export default function CalorieCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <CalorieCalculator />
     </div>
