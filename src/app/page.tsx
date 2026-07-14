@@ -1,56 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useTheme } from "@/components/ThemeProvider";
-
-const cards = [
-  {
-    emoji: "🍩",
-    title: "Morning Glow",
-    description:
-      "The best time to catch gentle rays is between 7–10 AM. Lower UV, warmer light, and a peaceful start to your day.",
-  },
-  {
-    emoji: "🌻",
-    title: "UV Index",
-    description:
-      "Always check the UV index before heading out. Aim for moderate levels (3–5) and use SPF 30+ for longer sessions.",
-  },
-  {
-    emoji: "💧",
-    title: "Stay Hydrated",
-    description:
-      "Drink plenty of water before, during, and after sun exposure. Your skin and body will thank you.",
-  },
-  {
-    emoji: "🍴",
-    title: "Golden Hour",
-    description:
-      "Late afternoon sun (4–6 PM) offers beautiful warm light with reduced UV intensity. Perfect for relaxing outdoors.",
-  },
-];
+import SiteNav from "@/components/SiteNav";
+import { CALCULATORS } from "@/lib/calculators";
 
 export default function LandingPage() {
-  const { theme, toggle } = useTheme();
-
   return (
     <div className="landing-page">
       <nav className="landing-nav">
-        <span className="landing-nav-brand">Sunbathing Calculator</span>
-        <button
-          onClick={toggle}
-          className="landing-theme-btn"
-          title={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
-        >
-          {theme === "light" ? "🌙" : "☀️"}
-        </button>
+        <SiteNav />
       </nav>
 
       <main className="landing-main">
-        <h1 className="landing-title">Sunbathing Calculator</h1>
+        <h1 className="landing-title">CalcSuite</h1>
         <p className="landing-subtitle">
-          Find out exactly how long you can safely stay in the sun based on your
-          skin type, SPF sunscreen, and real-time UV index — in under 10 seconds.
+          Free, fast online calculators — from safe sun exposure to daily
+          calorie targets. No sign-up, no fluff, just answers.
         </p>
 
         <div className="landing-actions">
@@ -63,63 +28,88 @@ export default function LandingPage() {
         </div>
 
         <div className="landing-grid">
-          {cards.map((card) => (
-            <div key={card.title} className="landing-card">
-              <span className="landing-card-emoji">{card.emoji}</span>
-              <h2 className="landing-card-title">{card.title}</h2>
-              <p className="landing-card-desc">{card.description}</p>
-            </div>
-          ))}
+          {CALCULATORS.map((calc) =>
+            calc.comingSoon ? (
+              <div key={calc.name} className="landing-card landing-card-soon">
+                <span className="landing-card-emoji">{calc.emoji}</span>
+                <h2 className="landing-card-title">
+                  {calc.name}
+                  <span className="landing-card-badge">Work in progress</span>
+                </h2>
+                <p className="landing-card-desc">{calc.description}</p>
+              </div>
+            ) : (
+              <Link
+                key={calc.name}
+                href={calc.href}
+                className="landing-card landing-card-link"
+              >
+                <span className="landing-card-emoji">{calc.emoji}</span>
+                <h2 className="landing-card-title">{calc.name}</h2>
+                <p className="landing-card-desc">{calc.description}</p>
+              </Link>
+            )
+          )}
+        </div>
+
+        <div className="landing-actions">
+          <Link href="/calculator" className="btn-primary">
+            Try the Sunbathing Calculator
+          </Link>
+          <Link href="/calorie-calculator" className="btn-outline">
+            Calorie Calculator
+          </Link>
         </div>
 
         <section className="landing-about">
-          <h2 className="landing-about-title">What Is This?</h2>
+          <h2 className="landing-about-title">What is CalcSuite?</h2>
           <p>
-            Sunbathing Calculator is a free tool that helps you enjoy the sun safely. Too
-            much UV exposure is the leading cause of sunburn and long-term skin damage, but
-            most people have no idea how to calculate their personal limit. The answer
-            depends on three things: your Fitzpatrick skin type (how much melanin your skin
-            produces), the SPF of your sunscreen, and the UV index at your location right now.
+            CalcSuite is a growing collection of free, no-nonsense online
+            calculators. Every tool is fast, works on any device, and needs no
+            account — you enter your numbers and get a clear answer in seconds.
+            Each calculator is backed by a transparent formula so you can see
+            exactly how the result was reached, not just a black-box number.
           </p>
           <p>
-            Our calculator combines all three into a single formula:{" "}
-            <strong>max safe time = (skin type base × SPF) ÷ UV index</strong>. The skin type
-            base ranges from 67 minutes for very fair skin (Type I) up to 233 minutes for
-            deeply pigmented skin (Type VI). Apply SPF 50 sunscreen and that window grows
-            significantly. A high UV index — like the extreme levels you find at noon in
-            summer or at altitude — shrinks it fast. The tool fetches live UV data from
-            Open-Meteo for your exact coordinates, so the result reflects what the sun is
-            actually doing outside right now, not a generic average.
+            The <strong>Sunbathing Calculator</strong> tells you how long you can
+            safely stay in the sun. It combines your Fitzpatrick skin type, the
+            SPF of your sunscreen, and the current UV index into a single formula
+            — <strong>max safe time = (skin type base × SPF) ÷ UV index</strong>{" "}
+            — and pulls live UV data from Open-Meteo for your exact location so
+            the result reflects what the sun is actually doing right now.
           </p>
           <p>
-            The interactive UV chart shows the full arc of the day as a bell curve, highlights
-            your planned session window, and updates in real time as you adjust your inputs.
-            Whether you are planning a beach day, a hiking trip, or just a lunch break outside,
-            you can dial in your skin type, sunscreen, start time, and session length and see
-            immediately whether you are within safe limits.
+            The <strong>Calorie Calculator</strong> finds your daily calorie
+            needs using the Mifflin-St Jeor equation to estimate your basal
+            metabolic rate (BMR), then scales it by your activity level to get
+            your total daily energy expenditure (TDEE). Planning a cut or a bulk?
+            Enter a goal weight and it maps out your target intake and projects
+            the date you will reach it.
           </p>
 
-          <h2 className="landing-about-title">Coming Soon</h2>
+          <h2 className="landing-about-title">Coming Soon / Roadmap</h2>
           <p>
-            We are building a full suite of sun and outdoor safety calculators. On the roadmap:
-            a <strong>Vitamin D calculator</strong> that tells you the minimum sun exposure you
-            need to meet your daily vitamin D synthesis target, a{" "}
-            <strong>sunscreen reapplication timer</strong> that accounts for water activity and
-            sweating, a <strong>UV forecast tool</strong> that maps safe exposure windows across
-            the next 7 days, and an <strong>altitude UV booster</strong> that adjusts your limit
-            for elevation (UV intensity rises roughly 10% for every 1,000 metres above sea level).
-            All calculators will share the same skin-type and SPF inputs so you only have to enter
-            your profile once.
-          </p>
-          <p>
-            Our goal is to make sun safety information practical, not preachy — give you the
-            numbers you need in seconds so you can get back to actually enjoying the outdoors.
+            A <strong>Body Fat Calculator</strong> that estimates your body fat
+            percentage from simple tape measurements is currently a work in
+            progress. Further out on the roadmap: a{" "}
+            <strong>vitamin D calculator</strong> for the minimum sun exposure
+            you need to hit your daily synthesis target, a{" "}
+            <strong>sunscreen reapplication timer</strong> that accounts for
+            water and sweat, and more everyday tools. Our goal is simple — give
+            you the numbers you need in seconds so you can get on with your day.
           </p>
         </section>
 
-        <nav aria-label="Site links" className="mt-8 flex flex-wrap gap-4 text-xs" style={{ color: "var(--text-secondary)" }}>
+        <nav
+          aria-label="Site links"
+          className="mt-8 flex flex-wrap gap-4 text-xs"
+          style={{ color: "var(--text-secondary)" }}
+        >
           <Link href="/calculator" style={{ color: "var(--accent)" }} className="hover:underline">
-            Calculator
+            Sunbathing Calculator
+          </Link>
+          <Link href="/calorie-calculator" style={{ color: "var(--accent)" }} className="hover:underline">
+            Calorie Calculator
           </Link>
           <Link href="/calculator#how-it-works" style={{ color: "var(--accent)" }} className="hover:underline">
             How It Works
@@ -132,7 +122,7 @@ export default function LandingPage() {
 
       <footer className="landing-footer">
         <hr className="landing-hr" />
-        <p>Enjoy the sunshine responsibly.</p>
+        <p>Free online calculators. No sign-up required.</p>
       </footer>
     </div>
   );
