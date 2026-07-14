@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | CalcSuite",
   },
   description:
-    "Free, fast online calculators — from safe sun exposure time to daily calorie targets. No sign-up, no fluff, just answers.",
+    "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just answers.",
   keywords: [
     "online calculators",
     "free calculators",
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     "BMR calculator",
     "UV index calculator",
     "SPF calculator",
+    "BMI calculator",
+    "body mass index",
+    "GPA calculator",
+    "grade calculator",
+    "college GPA",
     "body fat calculator",
   ],
   alternates: {

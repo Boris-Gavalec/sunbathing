@@ -1,26 +1,23 @@
 import type { MetadataRoute } from "next";
+import { CALCULATORS } from "@/lib/calculators";
+
+const BASE_URL = "https://calcsuite.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
   return [
     {
-      url: "https://calcsuite.app",
+      url: BASE_URL,
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
     },
-    {
-      url: "https://calcsuite.app/calculator",
+    ...CALCULATORS.filter((calc) => !calc.comingSoon).map((calc) => ({
+      url: `${BASE_URL}${calc.href}`,
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as const,
       priority: 0.9,
-    },
-    {
-      url: "https://calcsuite.app/calorie-calculator",
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
+    })),
   ];
 }

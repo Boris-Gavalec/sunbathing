@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useTheme } from "@/components/ThemeProvider";
-import { CALCULATORS } from "@/lib/calculators";
+import { CALCULATORS, CATEGORIES } from "@/lib/calculators";
 
 export default function SiteNav() {
   const { theme, toggle } = useTheme();
@@ -51,28 +51,33 @@ export default function SiteNav() {
 
           {open && (
             <div className="site-nav-menu" role="menu">
-              {CALCULATORS.map((calc) =>
-                calc.comingSoon ? (
-                  <span key={calc.name} className="site-nav-menu-item disabled" role="menuitem" aria-disabled="true">
-                    <span className="site-nav-menu-emoji">{calc.emoji}</span>
-                    <span>
-                      {calc.name}
-                      <span className="site-nav-menu-soon">Coming soon</span>
-                    </span>
-                  </span>
-                ) : (
-                  <Link
-                    key={calc.name}
-                    href={calc.href}
-                    className="site-nav-menu-item"
-                    role="menuitem"
-                    onClick={() => setOpen(false)}
-                  >
-                    <span className="site-nav-menu-emoji">{calc.emoji}</span>
-                    <span>{calc.name}</span>
-                  </Link>
-                )
-              )}
+              {CATEGORIES.map((category) => (
+                <div key={category.id}>
+                  <span className="site-nav-menu-header">{category.label}</span>
+                  {CALCULATORS.filter((calc) => calc.category === category.id).map((calc) =>
+                    calc.comingSoon ? (
+                      <span key={calc.name} className="site-nav-menu-item disabled" role="menuitem" aria-disabled="true">
+                        <span className="site-nav-menu-emoji">{calc.emoji}</span>
+                        <span>
+                          {calc.name}
+                          <span className="site-nav-menu-soon">Coming soon</span>
+                        </span>
+                      </span>
+                    ) : (
+                      <Link
+                        key={calc.name}
+                        href={calc.href}
+                        className="site-nav-menu-item"
+                        role="menuitem"
+                        onClick={() => setOpen(false)}
+                      >
+                        <span className="site-nav-menu-emoji">{calc.emoji}</span>
+                        <span>{calc.name}</span>
+                      </Link>
+                    )
+                  )}
+                </div>
+              ))}
             </div>
           )}
         </div>

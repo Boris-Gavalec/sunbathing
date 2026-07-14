@@ -9,6 +9,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://calcsuite.app/calorie-calculator",
   },
+  openGraph: {
+    title: "Calorie Calculator — Daily Intake, Cutting & Bulking Planner",
+    description:
+      "Calculate your daily calorie needs (BMR and TDEE) and plan a cut or bulk with a projected goal date.",
+    url: "https://calcsuite.app/calorie-calculator",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "CalcSuite", item: "https://calcsuite.app" },
+    { "@type": "ListItem", position: 2, name: "Calorie Calculator", item: "https://calcsuite.app/calorie-calculator" },
+  ],
 };
 
 const webAppSchema = {
@@ -50,6 +65,10 @@ export default function CalorieCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <CalorieCalculator />
     </div>
