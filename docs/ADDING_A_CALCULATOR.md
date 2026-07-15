@@ -93,12 +93,45 @@ That's it for wiring. The dropdown, landing grid, footer, and sitemap now includ
 
 ---
 
+## Analytics & site tags (automatic — never add these per page)
+
+The **Google tag (gtag.js / GA4, `G-0TDBM57DMP`)** and the **Google AdSense meta tag
+(`ca-pub-2636014626530848`)** are rendered once in the `<head>` of the root layout
+(`src/app/layout.tsx`), immediately after the opening `<head>`. Because the root layout
+wraps every page, both are automatically included on the homepage and on **every new
+calculator route** — you do not add them anywhere else.
+
+> **Do not paste the Google tag or the AdSense meta into individual `page.tsx` files.**
+> Google requires exactly one Google tag per page; adding it again would create a
+> duplicate. New pages inherit both tags for free — there is nothing to do.
+
+For reference, the exact block that lives at the top of `<head>` in `src/app/layout.tsx`
+is (the inline snippet is emitted verbatim as required by Google):
+
+```html
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0TDBM57DMP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0TDBM57DMP');
+</script>
+<meta name="google-adsense-account" content="ca-pub-2636014626530848">
+```
+
+If Google ever issues a new tag ID or AdSense publisher ID, update it **only** in
+`src/app/layout.tsx` and it propagates to every page at once.
+
+---
+
 ## SEO checklist (per route)
 
 The global defaults live in `src/app/layout.tsx` (title template, base OpenGraph/Twitter,
-`metadataBase`, robots). The site-wide **OG/Twitter share image** is generated once at
-`src/app/opengraph-image.tsx` and inherited by every route — you do **not** add an image
-per page.
+`metadataBase`, robots, plus the Google tag + AdSense meta described above). The site-wide
+**OG/Twitter share image** is generated once at `src/app/opengraph-image.tsx` and inherited
+by every route — you do **not** add an image per page.
 
 In your `page.tsx` `metadata`, set:
 
