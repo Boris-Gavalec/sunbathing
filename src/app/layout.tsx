@@ -16,26 +16,33 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://calcsuite.app"),
   title: {
-    default: "CalcSuite: Free BMI, GPA, Calorie & Sunbathing Calculators",
+    default: "CalcSuite: Free Online Calculators for Health, Money & More",
     template: "%s | CalcSuite",
   },
   description:
-    "Free, fast online calculators for health and education, covering safe sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just answers.",
+    "Free, fast online calculators for health, money, study and everyday maths, covering BMI, calories, loans, mortgages, percentages, and dates. No sign-up, just answers.",
   keywords: [
     "online calculators",
     "free calculators",
     "sunbathing calculator",
     "calorie calculator",
     "TDEE calculator",
-    "BMR calculator",
-    "UV index calculator",
-    "SPF calculator",
     "BMI calculator",
     "body mass index",
+    "water intake calculator",
+    "pace calculator",
     "GPA calculator",
     "grade calculator",
-    "college GPA",
-    "body fat calculator",
+    "loan calculator",
+    "EMI calculator",
+    "mortgage calculator",
+    "savings goal calculator",
+    "tip calculator",
+    "discount calculator",
+    "percentage calculator",
+    "age calculator",
+    "unit converter",
+    "date difference calculator",
   ],
   alternates: {
     canonical: "https://calcsuite.app",
@@ -43,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CalcSuite: Free Online Calculators",
     description:
-      "Free, fast online calculators, from safe sun exposure to daily calorie targets. No sign-up, no fluff, just answers.",
+      "Free, fast online calculators for health, money, study and everyday maths. No sign-up, no fluff, just answers.",
     type: "website",
     locale: "en_US",
     siteName: "CalcSuite",
@@ -53,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CalcSuite: Free Online Calculators",
     description:
-      "Free, fast online calculators, from safe sun exposure to daily calorie targets.",
+      "Free, fast online calculators for health, money, study and everyday maths.",
   },
   robots: {
     index: true,

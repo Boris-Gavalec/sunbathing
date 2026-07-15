@@ -14,9 +14,10 @@ export function GET() {
   const lines = [
     "# CalcSuite",
     "",
-    "> Free, fast online calculators for health and education, covering safe sun " +
-      "exposure, daily calories, BMI, and GPA. No sign-up, no account, just a " +
-      "clear answer backed by a transparent formula.",
+    "> Free, fast online calculators for health, money, study and everyday maths, " +
+      "covering safe sun exposure, calories, BMI, loans, mortgages, percentages, " +
+      "dates and more. No sign-up, no account, just a clear answer backed by a " +
+      "transparent formula.",
     "",
     "Every calculator runs in the browser, works on any device, and shows the " +
       "exact formula behind its result rather than a black-box number. Live UV " +
