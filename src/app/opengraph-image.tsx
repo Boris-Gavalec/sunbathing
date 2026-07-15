@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 // Root-level OG image, inherited by every route that doesn't define its own.
-export const alt = "CalcSuite — Free Online Calculators";
+export const alt = "CalcSuite: Free Online Calculators";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

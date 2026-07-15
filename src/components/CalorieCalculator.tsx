@@ -285,7 +285,7 @@ export default function CalorieCalculator() {
         >
           {ACTIVITY_LEVELS.map((a) => (
             <option key={a.value} value={a.value}>
-              {a.label} — {a.description}
+              {a.label}: {a.description}
             </option>
           ))}
         </select>
@@ -500,7 +500,7 @@ export default function CalorieCalculator() {
             <p className="mb-3">
               TDEE is your BMR multiplied by an activity factor ranging from 1.2 (sedentary) to 1.9
               (extremely active). It represents all the calories you burn in a typical day, including
-              exercise and daily movement. Eating at your TDEE keeps your weight stable — this is your
+              exercise and daily movement. Eating at your TDEE keeps your weight stable. This is your
               maintenance level.
             </p>
 
@@ -531,7 +531,7 @@ export default function CalorieCalculator() {
           <footer className="text-center py-4 text-xs" style={{ color: "var(--text-secondary)" }}>
             <p>
               These figures are estimates for informational purposes only and are not medical or
-              nutritional advice. Individual needs vary — consult a qualified professional before making
+              nutritional advice. Individual needs vary, so consult a qualified professional before making
               significant dietary changes.
             </p>
           </footer>

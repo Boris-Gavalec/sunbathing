@@ -53,7 +53,7 @@ export const CALCULATORS: CalculatorEntry[] = [
     href: "#",
     category: "health",
     description:
-      "Estimate your body fat percentage from simple tape measurements. Work in progress — coming soon.",
+      "Estimate your body fat percentage from simple tape measurements. Coming soon.",
     comingSoon: true,
   },
 ];

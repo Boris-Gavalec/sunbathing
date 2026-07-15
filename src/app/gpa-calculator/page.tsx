@@ -3,14 +3,14 @@ import GpaCalculator from "@/components/GpaCalculator";
 import { GPA_FAQ } from "@/lib/gpa";
 
 export const metadata: Metadata = {
-  title: "GPA Calculator — College & High School GPA on the 4.0 Scale",
+  title: "GPA Calculator: College & High School GPA on the 4.0 Scale",
   description:
     "Calculate your semester GPA on the 4.0 scale with letter grades and credits. Supports weighted honors/AP grades and cumulative GPA across semesters.",
   alternates: {
     canonical: "https://calcsuite.app/gpa-calculator",
   },
   openGraph: {
-    title: "GPA Calculator — College & High School GPA on the 4.0 Scale",
+    title: "GPA Calculator: College & High School GPA on the 4.0 Scale",
     description:
       "Calculate your semester and cumulative GPA on the 4.0 scale, with optional weighted honors and AP grades.",
     url: "https://calcsuite.app/gpa-calculator",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "CalcSuite",
   },
   twitter: {
-    title: "GPA Calculator — College & High School GPA on the 4.0 Scale",
+    title: "GPA Calculator: College & High School GPA on the 4.0 Scale",
     description:
       "Calculate your semester and cumulative GPA on the 4.0 scale, with optional weighted honors and AP grades.",
   },

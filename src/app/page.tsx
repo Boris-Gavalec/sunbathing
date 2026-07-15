@@ -4,9 +4,9 @@ import SiteNav from "@/components/SiteNav";
 import { CALCULATORS, CATEGORIES } from "@/lib/calculators";
 
 export const metadata: Metadata = {
-  title: { absolute: "CalcSuite — Free BMI, GPA, Calorie & Sunbathing Calculators" },
+  title: { absolute: "CalcSuite: Free BMI, GPA, Calorie & Sunbathing Calculators" },
   description:
-    "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just answers.",
+    "Free, fast online calculators for health and education, covering safe sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just answers.",
   alternates: {
     canonical: "https://calcsuite.app",
   },
@@ -18,7 +18,7 @@ const websiteSchema = {
   name: "CalcSuite",
   url: "https://calcsuite.app",
   description:
-    "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA.",
+    "Free, fast online calculators for health and education, covering safe sun exposure, daily calories, BMI, and GPA.",
   publisher: {
     "@type": "Organization",
     name: "CalcSuite",
@@ -57,8 +57,8 @@ export default function LandingPage() {
       <main className="landing-main">
         <h1 className="landing-title">CalcSuite</h1>
         <p className="landing-subtitle">
-          Free, fast online calculators for health and education — safe sun
-          exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just
+          Free, fast online calculators for health and education, covering safe
+          sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just
           answers.
         </p>
 
@@ -108,16 +108,16 @@ export default function LandingPage() {
           <p>
             CalcSuite is a growing collection of free, no-nonsense online
             calculators. Every tool is fast, works on any device, and needs no
-            account — you enter your numbers and get a clear answer in seconds.
+            account. You enter your numbers and get a clear answer in seconds.
             Each calculator is backed by a transparent formula so you can see
             exactly how the result was reached, not just a black-box number.
           </p>
           <p>
             The <strong>Sunbathing Calculator</strong> tells you how long you can
             safely stay in the sun. It combines your Fitzpatrick skin type, the
-            SPF of your sunscreen, and the current UV index into a single formula
-            — <strong>max safe time = (skin type base × SPF) ÷ UV index</strong>{" "}
-            — and pulls live UV data from Open-Meteo for your exact location so
+            SPF of your sunscreen, and the current UV index into a single
+            formula, <strong>max safe time = (skin type base × SPF) ÷ UV index</strong>,
+            and pulls live UV data from Open-Meteo for your exact location so
             the result reflects what the sun is actually doing right now.
           </p>
           <p>
@@ -129,16 +129,16 @@ export default function LandingPage() {
             the date you will reach it.
           </p>
           <p>
-            The <strong>BMI Calculator</strong> computes your body mass index —{" "}
-            <strong>BMI = weight (kg) ÷ height (m)²</strong> — and places it in
+            The <strong>BMI Calculator</strong> computes your body mass index,{" "}
+            <strong>BMI = weight (kg) ÷ height (m)²</strong>, and places it in
             the WHO weight categories, from underweight to the obesity classes.
             It also shows the healthy weight range for your height plus extras
             like BMI prime and the ponderal index, in metric or imperial units.
           </p>
           <p>
             The <strong>GPA Calculator</strong> turns your letter grades and
-            credit hours into a grade point average on the standard US 4.0 scale
-            — <strong>GPA = Σ(grade points × credits) ÷ Σ credits</strong>. It
+            credit hours into a grade point average on the standard US 4.0 scale,{" "}
+            <strong>GPA = Σ(grade points × credits) ÷ Σ credits</strong>. It
             supports weighted honors and AP/IB grades and can merge this
             semester with your prior GPA for a credit-weighted cumulative
             result.
@@ -152,7 +152,7 @@ export default function LandingPage() {
             <strong>vitamin D calculator</strong> for the minimum sun exposure
             you need to hit your daily synthesis target, a{" "}
             <strong>sunscreen reapplication timer</strong> that accounts for
-            water and sweat, and more everyday tools. Our goal is simple — give
+            water and sweat, and more everyday tools. Our goal is simple: give
             you the numbers you need in seconds so you can get on with your day.
           </p>
         </section>

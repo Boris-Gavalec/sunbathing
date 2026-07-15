@@ -47,7 +47,7 @@ export const GPA_FAQ: { q: string; a: string }[] = [
   },
   {
     q: "What is the difference between weighted and unweighted GPA?",
-    a: "An unweighted GPA treats every course the same on the 4.0 scale. A weighted GPA adds a bonus for harder courses — typically +0.5 for honors and +1.0 for AP or IB — so an A in an AP class counts as 5.0. Weighted GPAs can therefore exceed 4.0. Failing grades receive no bonus.",
+    a: "An unweighted GPA treats every course the same on the 4.0 scale. A weighted GPA adds a bonus for harder courses, typically +0.5 for honors and +1.0 for AP or IB, so an A in an AP class counts as 5.0. Weighted GPAs can therefore exceed 4.0. Failing grades receive no bonus.",
   },
   {
     q: "How do I calculate my cumulative GPA?",
@@ -59,7 +59,7 @@ export const GPA_FAQ: { q: string; a: string }[] = [
   },
   {
     q: "Do pass/fail courses affect GPA?",
-    a: "Usually not. Most schools exclude pass/fail (credit/no-credit) courses from the GPA calculation — you earn the credits, but no grade points. Leave such courses out of this calculator, or check your school's policy since some count a fail as an F.",
+    a: "Usually not. Most schools exclude pass/fail (credit/no-credit) courses from the GPA calculation, so you earn the credits but no grade points. Leave such courses out of this calculator, or check your school's policy since some count a fail as an F.",
   },
 ];
 

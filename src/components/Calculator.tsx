@@ -113,7 +113,7 @@ export default function Calculator() {
                 Sunbathing Calculator
               </h1>
               <p className="text-xs text-secondary hidden sm:block">
-                Know exactly when to get out of the sun — before your skin decides for you
+                Know exactly when to get out of the sun, before your skin decides for you
               </p>
             </div>
           </div>

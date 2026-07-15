@@ -3,14 +3,14 @@ import BmiCalculator from "@/components/BmiCalculator";
 import { BMI_FAQ } from "@/lib/bmi";
 
 export const metadata: Metadata = {
-  title: "BMI Calculator — Body Mass Index & Healthy Weight Range",
+  title: "BMI Calculator: Body Mass Index & Healthy Weight Range",
   description:
     "Calculate your body mass index (BMI = kg/m²), see your WHO weight category, and find the healthy weight range for your height. Metric and imperial units.",
   alternates: {
     canonical: "https://calcsuite.app/bmi-calculator",
   },
   openGraph: {
-    title: "BMI Calculator — Body Mass Index & Healthy Weight Range",
+    title: "BMI Calculator: Body Mass Index & Healthy Weight Range",
     description:
       "Calculate your BMI, see your WHO weight category, and find the healthy weight range for your height.",
     url: "https://calcsuite.app/bmi-calculator",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "CalcSuite",
   },
   twitter: {
-    title: "BMI Calculator — Body Mass Index & Healthy Weight Range",
+    title: "BMI Calculator: Body Mass Index & Healthy Weight Range",
     description:
       "Calculate your BMI, see your WHO weight category, and find the healthy weight range for your height.",
   },
