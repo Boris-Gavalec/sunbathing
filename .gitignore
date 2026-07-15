@@ -14,6 +14,8 @@
 /coverage
 
 # next.js
+# Anchored, so it only matches .next at the repo root. Build output inside
+# nested worktrees is covered by the .claude/ rule below.
 /.next/
 /out/
 
@@ -35,6 +37,12 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Claude Code local state: agent definitions, local settings, and worktrees.
+# The worktrees hold their own .next build output, which the anchored /.next/
+# rule above does not catch, so a stray `git add -A` would otherwise commit
+# thousands of build artifacts.
+.claude/
 
 # typescript
 *.tsbuildinfo
