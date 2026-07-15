@@ -1,31 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Calculator from "@/components/Calculator";
 import SeoContent from "@/components/SeoContent";
 import FaqSection from "@/components/FaqSection";
+import SiteFooter from "@/components/SiteFooter";
+import { calculatorMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = calculatorMetadata({
   title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
   description:
     "Enter your Fitzpatrick skin type, SPF value, and UV index to calculate your maximum safe sunbathing time. Live UV data from Open-Meteo.",
-  alternates: {
-    canonical: "https://calcsuite.app/calculator",
-  },
-  openGraph: {
-    title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
-    description:
-      "Calculate your maximum safe sunbathing time from your skin type, SPF, and the live UV index.",
-    url: "https://calcsuite.app/calculator",
-    type: "website",
-    locale: "en_US",
-    siteName: "CalcSuite",
-  },
-  twitter: {
-    title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
-    description:
-      "Calculate your maximum safe sunbathing time from your skin type, SPF, and the live UV index.",
-  },
-};
+  social:
+    "Calculate your maximum safe sunbathing time from your skin type, SPF, and the live UV index.",
+  path: "/calculator",
+});
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -161,6 +148,8 @@ export default function CalculatorPage() {
           </Link>
         </p>
       </footer>
+
+      <SiteFooter />
     </div>
   );
 }

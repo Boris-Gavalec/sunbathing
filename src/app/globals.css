@@ -192,8 +192,8 @@ input[type="range"]::-moz-range-thumb {
 
 .landing-nav {
   width: 100%;
-  max-width: 620px;
-  padding: 16px 40px;
+  max-width: 1280px;
+  padding: 16px 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -227,30 +227,56 @@ input[type="range"]::-moz-range-thumb {
 .landing-main {
   flex: 1;
   width: 100%;
-  max-width: 620px;
-  padding: 24px 40px 40px;
+  max-width: 1280px;
+  padding: 40px 48px 56px;
+}
+
+/* ── Hero ── */
+.landing-hero {
+  padding: 24px 0 8px;
 }
 
 .landing-title {
-  font-size: 2.25rem;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
   font-weight: 700;
   color: var(--foreground);
-  margin: 0 0 14px;
-  letter-spacing: -0.5px;
+  margin: 0 0 18px;
+  letter-spacing: -1px;
+  line-height: 1.05;
 }
 
 .landing-subtitle {
-  font-size: 0.975rem;
+  font-size: 1.0625rem;
   color: var(--text-secondary);
   line-height: 1.65;
+  margin: 0 0 28px;
+  /* The container is 1280px but prose is not: past ~65ch the eye loses the
+     line it is on. Width buys us a wider card grid, not wider sentences. */
+  max-width: 64ch;
+}
+
+.landing-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
   margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.landing-stats strong {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .landing-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 36px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-bottom: 44px;
 }
 
 .landing-section-title {
@@ -259,10 +285,36 @@ input[type="range"]::-moz-range-thumb {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-secondary);
-  margin: 0 0 12px;
+  margin: 0 0 14px;
 }
 
-@media (max-width: 480px) {
+/* Card grid ladder: 5 across at full width, stepping down so cards never get
+   narrower than roughly 200px. */
+@media (max-width: 1200px) {
+  .landing-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .landing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .landing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .landing-main {
+    padding: 24px 24px 40px;
+  }
+  .landing-nav {
+    padding: 14px 24px;
+  }
+}
+
+@media (max-width: 520px) {
   .landing-grid {
     grid-template-columns: 1fr;
   }
@@ -272,36 +324,36 @@ input[type="range"]::-moz-range-thumb {
   .landing-nav {
     padding: 12px 20px;
   }
-  .landing-footer {
-    padding: 0 20px 28px;
-  }
 }
 
+/* Sized for the 5-across grid: cards land at ~200-220px, so padding and type
+   are a step down from the old 2-across layout. */
 .landing-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 14px;
-  padding: 20px;
+  padding: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 8px rgba(0, 0, 0, 0.04);
 }
 
 .landing-card-emoji {
   font-size: 22px;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .landing-card-title {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--foreground);
-  margin: 0 0 6px;
+  margin: 0 0 5px;
+  line-height: 1.3;
 }
 
 .landing-card-desc {
-  font-size: 0.825rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -310,7 +362,7 @@ input[type="range"]::-moz-range-thumb {
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 36px;
+  margin-bottom: 44px;
 }
 
 .btn-primary {
@@ -349,29 +401,14 @@ input[type="range"]::-moz-range-thumb {
   background: var(--quick-start-bg);
 }
 
-.landing-footer {
-  width: 100%;
-  max-width: 620px;
-  padding: 0 40px 28px;
-  font-size: 0.825rem;
-  color: var(--text-secondary);
-  text-align: center;
-}
-
-.landing-hr {
-  border: none;
-  border-top: 1px solid var(--card-border);
-  margin-bottom: 16px;
-}
-
 .landing-about {
-  margin-top: 40px;
+  margin-top: 56px;
   border-top: 1px solid var(--card-border);
-  padding-top: 32px;
+  padding-top: 44px;
 }
 
 .landing-about-title {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--foreground);
   margin: 0 0 12px;
@@ -379,10 +416,12 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .landing-about p {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.75;
   margin: 0 0 16px;
+  /* Body copy stays readable regardless of how wide the page gets. */
+  max-width: 72ch;
 }
 
 .landing-about p strong {
@@ -409,7 +448,34 @@ input[type="range"]::-moz-range-thumb {
 .site-nav-left {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Desktop: one dropdown per category. Swapped for a single sheet on mobile,
+   where five buttons could never fit. */
+.site-nav-categories {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-nav-mobile {
+  display: none;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .site-nav-categories {
+    display: none;
+  }
+  .site-nav-mobile {
+    display: block;
+  }
+}
+
+.site-nav-category {
+  position: relative;
 }
 
 .site-nav-brand {
@@ -424,41 +490,55 @@ input[type="range"]::-moz-range-thumb {
   color: var(--accent);
 }
 
-.site-nav-dropdown {
-  position: relative;
-}
-
+/* Ghost by default — five bordered buttons in a row would fight the brand for
+   attention. The border only appears on hover/open. */
 .site-nav-dropdown-btn {
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 6px 12px;
-  border: 1px solid var(--card-border);
+  padding: 6px 10px;
+  border: 1px solid transparent;
   border-radius: 8px;
-  background: var(--card-bg);
+  background: transparent;
   color: var(--foreground);
   font-size: 0.825rem;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
   transition: border-color 0.15s, background 0.15s;
 }
 
-.site-nav-dropdown-btn:hover {
-  border-color: var(--text-secondary);
+.site-nav-dropdown-btn:hover,
+.site-nav-dropdown-btn[aria-expanded="true"] {
+  border-color: var(--card-border);
   background: var(--quick-start-bg);
+}
+
+/* The mobile trigger stands alone, so it keeps a visible affordance. */
+.site-nav-mobile .site-nav-dropdown-btn {
+  border-color: var(--card-border);
+  background: var(--card-bg);
 }
 
 .site-nav-menu {
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
-  min-width: 230px;
+  min-width: 240px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 6px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   z-index: 50;
+}
+
+/* The mobile sheet lists every category at once, so it can outgrow the
+   viewport — cap it and let it scroll. */
+.site-nav-menu-sheet {
+  max-height: 70vh;
+  overflow-y: auto;
+  max-width: calc(100vw - 40px);
 }
 
 .site-nav-menu-item {
@@ -538,4 +618,117 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 9999px;
   background: var(--card-border);
   color: var(--text-secondary);
+}
+
+/* ── Site-wide sitemap footer ── */
+.site-footer {
+  width: 100%;
+  border-top: 1px solid var(--card-border);
+  background: var(--card-bg);
+  margin-top: 48px;
+}
+
+.site-footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 48px 32px;
+}
+
+.site-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 28px 24px;
+}
+
+@media (max-width: 1000px) {
+  .site-footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .site-footer-inner {
+    padding: 32px 24px 24px;
+  }
+  .site-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .site-footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-footer-inner {
+    padding: 28px 20px 20px;
+  }
+}
+
+.site-footer-heading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--foreground);
+  margin: 0 0 12px;
+}
+
+.site-footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-footer-link {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.site-footer-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Coming-soon entries: real crawlable anchor text, but not a link to a route
+   that doesn't exist yet. */
+.site-footer-soon {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  opacity: 0.55;
+  cursor: default;
+}
+
+.site-footer-soon-tag {
+  margin-left: 6px;
+  padding: 1px 6px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  background: var(--card-border);
+  color: var(--text-secondary);
+}
+
+.site-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--card-border);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.site-footer-brand {
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.3px;
 }

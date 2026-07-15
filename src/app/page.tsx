@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 import { CALCULATORS, CATEGORIES } from "@/lib/calculators";
 
+const LIVE_CALCULATORS = CALCULATORS.filter((calc) => !calc.comingSoon);
+
 export const metadata: Metadata = {
-  title: { absolute: "CalcSuite — Free BMI, GPA, Calorie & Sunbathing Calculators" },
+  title: { absolute: "CalcSuite — Free Online Calculators for Health, Money & More" },
   description:
-    "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just answers.",
+    "Free, fast online calculators for health, money, study and everyday maths — BMI, calories, loans, mortgages, percentages, dates and more. No sign-up, just answers.",
   alternates: {
     canonical: "https://calcsuite.app",
   },
@@ -18,7 +21,7 @@ const websiteSchema = {
   name: "CalcSuite",
   url: "https://calcsuite.app",
   description:
-    "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA.",
+    "Free, fast online calculators for health, money, study and everyday maths.",
   publisher: {
     "@type": "Organization",
     name: "CalcSuite",
@@ -31,7 +34,7 @@ const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "CalcSuite Calculators",
-  itemListElement: CALCULATORS.filter((c) => !c.comingSoon).map((calc, i) => ({
+  itemListElement: LIVE_CALCULATORS.map((calc, i) => ({
     "@type": "ListItem",
     position: i + 1,
     name: calc.name,
@@ -55,20 +58,39 @@ export default function LandingPage() {
       </nav>
 
       <main className="landing-main">
-        <h1 className="landing-title">CalcSuite</h1>
-        <p className="landing-subtitle">
-          Free, fast online calculators for health and education — safe sun
-          exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just
-          answers.
-        </p>
+        <div className="landing-hero">
+          <h1 className="landing-title">Calculators that just give you the answer</h1>
+          <p className="landing-subtitle">
+            Free, fast online calculators for health, money, study and everyday
+            maths. Every tool shows the formula behind the result — no sign-up,
+            no fluff, no black boxes.
+          </p>
 
-        <div className="landing-actions">
-          <a href="#calculators" className="btn-primary">
-            Browse Calculators
-          </a>
-          <Link href="/calculator#how-it-works" className="btn-outline">
-            How It Works
-          </Link>
+          {/* Counts are derived from the registry so they can't drift as
+              calculators are added. */}
+          <ul className="landing-stats">
+            <li>
+              <strong>{LIVE_CALCULATORS.length}</strong> calculators
+            </li>
+            <li>
+              <strong>{CATEGORIES.length}</strong> categories
+            </li>
+            <li>
+              <strong>100%</strong> free
+            </li>
+            <li>
+              <strong>No</strong> login required
+            </li>
+          </ul>
+
+          <div className="landing-actions">
+            <a href="#calculators" className="btn-primary">
+              Browse Calculators
+            </a>
+            <Link href="/calculator#how-it-works" className="btn-outline">
+              How It Works
+            </Link>
+          </div>
         </div>
 
         <div id="calculators">
@@ -112,6 +134,8 @@ export default function LandingPage() {
             Each calculator is backed by a transparent formula so you can see
             exactly how the result was reached, not just a black-box number.
           </p>
+
+          <h2 className="landing-about-title">Health &amp; Fitness</h2>
           <p>
             The <strong>Sunbathing Calculator</strong> tells you how long you can
             safely stay in the sun. It combines your Fitzpatrick skin type, the
@@ -122,69 +146,59 @@ export default function LandingPage() {
           </p>
           <p>
             The <strong>Calorie Calculator</strong> finds your daily calorie
-            needs using the Mifflin-St Jeor equation to estimate your basal
-            metabolic rate (BMR), then scales it by your activity level to get
-            your total daily energy expenditure (TDEE). Planning a cut or a bulk?
-            Enter a goal weight and it maps out your target intake and projects
-            the date you will reach it.
+            needs using the Mifflin-St Jeor equation, then scales it by your
+            activity level to get your total daily energy expenditure. The{" "}
+            <strong>BMI Calculator</strong> computes body mass index (
+            <strong>kg ÷ m²</strong>) and places it in the WHO weight categories.
+            Alongside them, the <strong>Water Intake Calculator</strong> sets a
+            daily hydration target from your weight and activity, and the{" "}
+            <strong>Pace Calculator</strong> converts between running pace,
+            speed, time and distance.
           </p>
+
+          <h2 className="landing-about-title">Money</h2>
           <p>
-            The <strong>BMI Calculator</strong> computes your body mass index —{" "}
-            <strong>BMI = weight (kg) ÷ height (m)²</strong> — and places it in
-            the WHO weight categories, from underweight to the obesity classes.
-            It also shows the healthy weight range for your height plus extras
-            like BMI prime and the ponderal index, in metric or imperial units.
+            The <strong>Loan Calculator</strong> and{" "}
+            <strong>Mortgage Calculator</strong> both use the standard
+            amortisation formula to turn a principal, an interest rate and a term
+            into a monthly payment — the mortgage version adding property tax,
+            insurance and PMI for a true monthly outlay. The{" "}
+            <strong>Savings Goal Calculator</strong> works the other way,
+            compounding your monthly contributions to tell you when you will hit
+            a target. For everyday sums, the <strong>Tip Calculator</strong>{" "}
+            splits a bill and the <strong>Discount Calculator</strong> shows what
+            a sale price really saves you.
           </p>
+
+          <h2 className="landing-about-title">Study, Maths &amp; Everyday</h2>
           <p>
-            The <strong>GPA Calculator</strong> turns your letter grades and
-            credit hours into a grade point average on the standard US 4.0 scale
-            — <strong>GPA = Σ(grade points × credits) ÷ Σ credits</strong>. It
-            supports weighted honors and AP/IB grades and can merge this
-            semester with your prior GPA for a credit-weighted cumulative
-            result.
+            The <strong>GPA Calculator</strong> turns letter grades and credit
+            hours into a grade point average on the 4.0 scale, with weighted
+            honours and AP support. The <strong>Percentage Calculator</strong>{" "}
+            handles percent of a number, percent change and percent difference in
+            one place. The <strong>Age Calculator</strong> and{" "}
+            <strong>Date Difference Calculator</strong> do calendar-correct date
+            maths — real month lengths and leap years, not 30-day approximations
+            — and the <strong>Unit Converter</strong> covers length, weight and
+            temperature.
           </p>
 
           <h2 className="landing-about-title">Coming Soon / Roadmap</h2>
           <p>
-            A <strong>Body Fat Calculator</strong> that estimates your body fat
-            percentage from simple tape measurements is currently a work in
-            progress. Further out on the roadmap: a{" "}
-            <strong>vitamin D calculator</strong> for the minimum sun exposure
-            you need to hit your daily synthesis target, a{" "}
-            <strong>sunscreen reapplication timer</strong> that accounts for
-            water and sweat, and more everyday tools. Our goal is simple — give
-            you the numbers you need in seconds so you can get on with your day.
+            Four tools are in progress. A <strong>Body Fat Calculator</strong>{" "}
+            will estimate body fat percentage from simple tape measurements, a{" "}
+            <strong>Vitamin D Calculator</strong> will work out the minimum sun
+            exposure needed to hit your daily synthesis target, and a{" "}
+            <strong>Sunscreen Timer</strong> will tell you when to reapply,
+            accounting for water and sweat. For students,{" "}
+            <strong>Flashcards</strong> will turn your notes into a study deck.
+            Our goal is simple — give you the numbers you need in seconds so you
+            can get on with your day.
           </p>
         </section>
-
-        <nav
-          aria-label="Site links"
-          className="mt-8 flex flex-wrap gap-4 text-xs"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          {CALCULATORS.filter((c) => !c.comingSoon).map((calc) => (
-            <Link
-              key={calc.href}
-              href={calc.href}
-              style={{ color: "var(--accent)" }}
-              className="hover:underline"
-            >
-              {calc.name}
-            </Link>
-          ))}
-          <Link href="/calculator#how-it-works" style={{ color: "var(--accent)" }} className="hover:underline">
-            How It Works
-          </Link>
-          <Link href="/calculator#faq" style={{ color: "var(--accent)" }} className="hover:underline">
-            FAQ
-          </Link>
-        </nav>
       </main>
 
-      <footer className="landing-footer">
-        <hr className="landing-hr" />
-        <p>Free online calculators. No sign-up required.</p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
