@@ -95,18 +95,19 @@ That's it for wiring. The dropdown, landing grid, footer, and sitemap now includ
 
 ## Analytics & site tags (automatic — never add these per page)
 
-The **Google tag (gtag.js / GA4, `G-0TDBM57DMP`)** and the **Google AdSense meta tag
-(`ca-pub-2636014626530848`)** are rendered once in the `<head>` of the root layout
-(`src/app/layout.tsx`), immediately after the opening `<head>`. Because the root layout
-wraps every page, both are automatically included on the homepage and on **every new
-calculator route** — you do not add them anywhere else.
+The **Google tag (gtag.js / GA4, `G-0TDBM57DMP`)**, the **Google AdSense account meta tag**,
+and the **AdSense Auto ads loader** (both `ca-pub-2636014626530848`) are rendered once in the
+`<head>` of the root layout (`src/app/layout.tsx`), immediately after the opening `<head>`.
+Because the root layout wraps every page, all three are automatically included on the homepage
+and on **every new calculator route** — you do not add them anywhere else.
 
-> **Do not paste the Google tag or the AdSense meta into individual `page.tsx` files.**
-> Google requires exactly one Google tag per page; adding it again would create a
-> duplicate. New pages inherit both tags for free — there is nothing to do.
+> **Do not paste the Google tag or the AdSense scripts into individual `page.tsx` files.**
+> Google requires exactly one Google tag per page, and one AdSense loader per page; adding
+> them again would create duplicates. New pages inherit all three for free — there is nothing
+> to do.
 
 For reference, the exact block that lives at the top of `<head>` in `src/app/layout.tsx`
-is (the inline snippet is emitted verbatim as required by Google):
+is (the snippets are emitted verbatim as required by Google):
 
 ```html
 <!-- Google tag (gtag.js) -->
@@ -119,6 +120,9 @@ is (the inline snippet is emitted verbatim as required by Google):
   gtag('config', 'G-0TDBM57DMP');
 </script>
 <meta name="google-adsense-account" content="ca-pub-2636014626530848">
+<!-- Google AdSense (Auto ads) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2636014626530848"
+     crossorigin="anonymous"></script>
 ```
 
 If Google ever issues a new tag ID or AdSense publisher ID, update it **only** in

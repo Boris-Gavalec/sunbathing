@@ -88,6 +88,12 @@ export default function RootLayout({
           }}
         />
         <meta name="google-adsense-account" content="ca-pub-2636014626530848" />
+        {/* Google AdSense (Auto ads) */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2636014626530848"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>{children}</ThemeProvider>
