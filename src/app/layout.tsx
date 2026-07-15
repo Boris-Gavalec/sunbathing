@@ -72,6 +72,21 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        {/* Google tag (gtag.js) — kept as Google's verbatim snippet on purpose */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-0TDBM57DMP"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0TDBM57DMP');`,
+          }}
+        />
         <meta name="google-adsense-account" content="ca-pub-2636014626530848" />
       </head>
       <body className="min-h-full flex flex-col">
