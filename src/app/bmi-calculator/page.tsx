@@ -5,7 +5,7 @@ import { calculatorJsonLd, calculatorMetadata } from "@/lib/seo";
 import { BMI_FAQ } from "@/lib/bmi";
 
 const PATH = "/bmi-calculator";
-const TITLE = "BMI Calculator — Body Mass Index & Healthy Weight Range";
+const TITLE = "BMI Calculator: Body Mass Index & Healthy Weight Range";
 
 export const metadata = calculatorMetadata({
   title: TITLE,

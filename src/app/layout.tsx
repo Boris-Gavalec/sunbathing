@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://calcsuite.app"),
   title: {
-    default: "CalcSuite — Free Online Calculators for Health, Money & More",
+    default: "CalcSuite: Free Online Calculators for Health, Money & More",
     template: "%s | CalcSuite",
   },
   description:
-    "Free, fast online calculators for health, money, study and everyday maths — BMI, calories, loans, mortgages, percentages, dates and more. No sign-up, just answers.",
+    "Free, fast online calculators for health, money, study and everyday maths, covering BMI, calories, loans, mortgages, percentages, and dates. No sign-up, just answers.",
   keywords: [
     "online calculators",
     "free calculators",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     canonical: "https://calcsuite.app",
   },
   openGraph: {
-    title: "CalcSuite — Free Online Calculators",
+    title: "CalcSuite: Free Online Calculators",
     description:
       "Free, fast online calculators for health, money, study and everyday maths. No sign-up, no fluff, just answers.",
     type: "website",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CalcSuite — Free Online Calculators",
+    title: "CalcSuite: Free Online Calculators",
     description:
       "Free, fast online calculators for health, money, study and everyday maths.",
   },
@@ -79,7 +79,28 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        {/* Google tag (gtag.js) — kept as Google's verbatim snippet on purpose */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-0TDBM57DMP"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0TDBM57DMP');`,
+          }}
+        />
         <meta name="google-adsense-account" content="ca-pub-2636014626530848" />
+        {/* Google AdSense (Auto ads) */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2636014626530848"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>{children}</ThemeProvider>

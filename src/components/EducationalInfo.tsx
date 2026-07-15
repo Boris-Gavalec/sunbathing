@@ -43,11 +43,11 @@ export default function EducationalInfo() {
             Higher values mean stronger UV and faster skin damage.
           </p>
           <ul className="space-y-1 list-none">
-            <li><span className="font-mono text-foreground">1-2</span> — Low: minimal risk</li>
-            <li><span className="font-mono text-foreground">3-5</span> — Moderate: wear sunscreen</li>
-            <li><span className="font-mono text-foreground">6-7</span> — High: reduce exposure midday</li>
-            <li><span className="font-mono text-foreground">8-10</span> — Very high: seek shade</li>
-            <li><span className="font-mono text-foreground">11+</span> — Extreme: avoid outdoor exposure</li>
+            <li><span className="font-mono text-foreground">1-2</span>: Low, minimal risk</li>
+            <li><span className="font-mono text-foreground">3-5</span>: Moderate, wear sunscreen</li>
+            <li><span className="font-mono text-foreground">6-7</span>: High, reduce exposure midday</li>
+            <li><span className="font-mono text-foreground">8-10</span>: Very high, seek shade</li>
+            <li><span className="font-mono text-foreground">11+</span>: Extreme, avoid outdoor exposure</li>
           </ul>
         </div>
       </details>

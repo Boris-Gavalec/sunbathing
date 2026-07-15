@@ -5,7 +5,7 @@ import { calculatorJsonLd, calculatorMetadata } from "@/lib/seo";
 import { GPA_FAQ } from "@/lib/gpa";
 
 const PATH = "/gpa-calculator";
-const TITLE = "GPA Calculator — College & High School GPA on the 4.0 Scale";
+const TITLE = "GPA Calculator: College & High School GPA on the 4.0 Scale";
 
 export const metadata = calculatorMetadata({
   title: TITLE,

@@ -8,7 +8,7 @@ export default function FaqSection() {
     {
       question: "What does SPF actually mean?",
       answer:
-        "SPF stands for Sun Protection Factor. The number indicates how much longer you can stay in the sun compared to unprotected skin. SPF 30 means you can stay out roughly 30 times longer. However, this assumes proper application — most people apply only half the recommended amount, reducing the effective protection. Reapply every 2 hours for best results.",
+        "SPF stands for Sun Protection Factor. The number indicates how much longer you can stay in the sun compared to unprotected skin. SPF 30 means you can stay out roughly 30 times longer. However, this assumes proper application. Most people apply only half the recommended amount, which reduces the effective protection. Reapply every 2 hours for best results.",
     },
     {
       question: "How does skin type affect sun exposure time?",
@@ -28,7 +28,7 @@ export default function FaqSection() {
     {
       question: "Should I avoid the sun completely?",
       answer:
-        "No — moderate sun exposure is beneficial for vitamin D production and overall health. The goal is to enjoy the sun safely without overexposure. Know your limits based on your skin type, use sunscreen when needed, seek shade during peak hours, and pay attention to the UV index for your area.",
+        "No. Moderate sun exposure is beneficial for vitamin D production and overall health. The goal is to enjoy the sun safely without overexposure. Know your limits based on your skin type, use sunscreen when needed, seek shade during peak hours, and pay attention to the UV index for your area.",
     },
   ];
 

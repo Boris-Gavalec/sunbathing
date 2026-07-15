@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import { calculatorMetadata } from "@/lib/seo";
 
 export const metadata = calculatorMetadata({
-  title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
+  title: "Sunbathing Calculator: Safe Sun Exposure by Skin Type & SPF",
   description:
     "Enter your Fitzpatrick skin type, SPF value, and UV index to calculate your maximum safe sunbathing time. Live UV data from Open-Meteo.",
   social:
@@ -72,7 +72,7 @@ const faqJsonLd = {
       name: "Should I avoid the sun completely?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No — moderate sun exposure is beneficial for vitamin D production. The goal is to enjoy the sun safely. Know your limits based on your skin type, use sunscreen when needed, seek shade during peak hours (10 AM to 4 PM), and monitor the UV index.",
+        text: "No. Moderate sun exposure is beneficial for vitamin D production. The goal is to enjoy the sun safely. Know your limits based on your skin type, use sunscreen when needed, seek shade during peak hours (10 AM to 4 PM), and monitor the UV index.",
       },
     },
   ],

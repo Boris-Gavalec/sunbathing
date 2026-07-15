@@ -133,7 +133,52 @@ XML sitemap now all include it.
 
 ---
 
+## Analytics & site tags (automatic — never add these per page)
+
+The **Google tag (gtag.js / GA4, `G-0TDBM57DMP`)**, the **Google AdSense account meta tag**,
+and the **AdSense Auto ads loader** (both `ca-pub-2636014626530848`) are rendered once in the
+`<head>` of the root layout (`src/app/layout.tsx`), immediately after the opening `<head>`.
+Because the root layout wraps every page, all three are automatically included on the homepage
+and on **every new calculator route** — you do not add them anywhere else.
+
+> **Do not paste the Google tag or the AdSense scripts into individual `page.tsx` files.**
+> Google requires exactly one Google tag per page, and one AdSense loader per page; adding
+> them again would create duplicates. New pages inherit all three for free — there is nothing
+> to do.
+
+For reference, the exact block that lives at the top of `<head>` in `src/app/layout.tsx`
+is (the snippets are emitted verbatim as required by Google):
+
+```html
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0TDBM57DMP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0TDBM57DMP');
+</script>
+<meta name="google-adsense-account" content="ca-pub-2636014626530848">
+<!-- Google AdSense (Auto ads) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2636014626530848"
+     crossorigin="anonymous"></script>
+```
+
+If Google ever issues a new tag ID or AdSense publisher ID, update it **only** in
+`src/app/layout.tsx` and it propagates to every page at once.
+
+---
+
 ## SEO checklist (per route)
+
+The global defaults live in `src/app/layout.tsx` (title template, base OpenGraph/Twitter,
+`metadataBase`, robots, plus the Google tag + AdSense meta described above).
+
+**Copy style:** title separators are colons, not em dashes, and body copy avoids em
+dashes too (split the sentence, or use a comma or colon). Note that the calculators added
+in the expansion batch still use em dashes throughout their FAQ and prose copy — they are
+a known exception, not the pattern to follow.
 
 **Do not hand-roll `metadata`.** Use the `calculatorMetadata()` helper in
 `src/lib/seo.ts`, and `calculatorJsonLd()` + `<JsonLd />` for the structured data:
@@ -142,9 +187,9 @@ XML sitemap now all include it.
 const PATH = "/tip-calculator";
 
 export const metadata = calculatorMetadata({
-  title: "Tip Calculator — Split a Bill and Work Out the Tip",   // ~50-60 chars
-  description: "…",                                              // ~120-160 chars
-  social: "…",                                                   // optional shorter card copy
+  title: "Tip Calculator: Split a Bill and Work Out the Tip",   // ~50-60 chars
+  description: "…",                                             // ~120-160 chars
+  social: "…",                                                  // optional shorter card copy
   path: PATH,
 });
 

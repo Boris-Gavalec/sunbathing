@@ -36,7 +36,7 @@ export default function SeoContent() {
       <p className="mb-3">
         The Fitzpatrick scale classifies skin into six types based on how it responds to UV exposure.
         Type I (very fair skin) burns easily and rarely tans, while Type VI (deeply pigmented skin)
-        almost never burns. Your skin type determines your natural tolerance to sun exposure — someone
+        almost never burns. Your skin type determines your natural tolerance to sun exposure. Someone
         with Type I skin may burn in as little as 10 minutes under strong sun, while Type VI skin
         provides significantly more natural protection. Knowing your skin type helps you estimate how
         long you can safely stay outdoors and how much sunscreen you need.
@@ -51,7 +51,7 @@ export default function SeoContent() {
         wear protective clothing and sunglasses, and apply broad-spectrum sunscreen with at least SPF 30.
         Be especially careful near water, sand, and snow, which reflect UV rays and increase exposure.
         Children and people with fair skin need extra precaution. Use this calculator to estimate your
-        safe exposure window, but always err on the side of caution — individual sensitivity varies
+        safe exposure window, but always err on the side of caution, since individual sensitivity varies
         and this tool provides estimates, not medical advice.
       </p>
     </section>

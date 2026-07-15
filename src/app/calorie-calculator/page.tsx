@@ -5,7 +5,7 @@ import { calculatorJsonLd, calculatorMetadata } from "@/lib/seo";
 import { CALORIE_FAQ } from "@/lib/calories";
 
 const PATH = "/calorie-calculator";
-const TITLE = "Calorie Calculator — Daily Intake, Cutting & Bulking Planner";
+const TITLE = "Calorie Calculator: Daily Intake, Cutting & Bulking Planner";
 
 export const metadata = calculatorMetadata({
   title: TITLE,

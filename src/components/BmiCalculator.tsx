@@ -322,7 +322,7 @@ export default function BmiCalculator() {
             <StatCard
               label="Ponderal index"
               value={result.ponderalIndex.toFixed(1)}
-              sub="kg/m³ — better for very tall or short people"
+              sub="kg/m³, better for very tall or short people"
             />
             <StatCard
               label="Normal BMI band"
@@ -401,7 +401,7 @@ export default function BmiCalculator() {
             <p className="mb-3">
               The healthy weight range shown is simply the weight that would put your BMI between 18.5
               and 24.9 at your current height. It is a population-level guideline rather than a personal
-              target — where you feel and perform best within (or near) that range depends on your build
+              target. Where you feel and perform best within (or near) that range depends on your build
               and muscle mass.
             </p>
 

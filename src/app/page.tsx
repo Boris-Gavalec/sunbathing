@@ -7,9 +7,9 @@ import { CALCULATORS, CATEGORIES } from "@/lib/calculators";
 const LIVE_CALCULATORS = CALCULATORS.filter((calc) => !calc.comingSoon);
 
 export const metadata: Metadata = {
-  title: { absolute: "CalcSuite — Free Online Calculators for Health, Money & More" },
+  title: { absolute: "CalcSuite: Free Online Calculators for Health, Money & More" },
   description:
-    "Free, fast online calculators for health, money, study and everyday maths — BMI, calories, loans, mortgages, percentages, dates and more. No sign-up, just answers.",
+    "Free, fast online calculators for health, money, study and everyday maths, covering BMI, calories, loans, mortgages, percentages, and dates. No sign-up, just answers.",
   alternates: {
     canonical: "https://calcsuite.app",
   },
@@ -62,7 +62,7 @@ export default function LandingPage() {
           <h1 className="landing-title">Calculators that just give you the answer</h1>
           <p className="landing-subtitle">
             Free, fast online calculators for health, money, study and everyday
-            maths. Every tool shows the formula behind the result — no sign-up,
+            maths. Every tool shows the formula behind the result. No sign-up,
             no fluff, no black boxes.
           </p>
 
@@ -130,7 +130,7 @@ export default function LandingPage() {
           <p>
             CalcSuite is a growing collection of free, no-nonsense online
             calculators. Every tool is fast, works on any device, and needs no
-            account — you enter your numbers and get a clear answer in seconds.
+            account. You enter your numbers and get a clear answer in seconds.
             Each calculator is backed by a transparent formula so you can see
             exactly how the result was reached, not just a black-box number.
           </p>
@@ -139,9 +139,9 @@ export default function LandingPage() {
           <p>
             The <strong>Sunbathing Calculator</strong> tells you how long you can
             safely stay in the sun. It combines your Fitzpatrick skin type, the
-            SPF of your sunscreen, and the current UV index into a single formula
-            — <strong>max safe time = (skin type base × SPF) ÷ UV index</strong>{" "}
-            — and pulls live UV data from Open-Meteo for your exact location so
+            SPF of your sunscreen, and the current UV index into a single
+            formula, <strong>max safe time = (skin type base × SPF) ÷ UV index</strong>,
+            and pulls live UV data from Open-Meteo for your exact location so
             the result reflects what the sun is actually doing right now.
           </p>
           <p>
@@ -161,7 +161,7 @@ export default function LandingPage() {
             The <strong>Loan Calculator</strong> and{" "}
             <strong>Mortgage Calculator</strong> both use the standard
             amortisation formula to turn a principal, an interest rate and a term
-            into a monthly payment — the mortgage version adding property tax,
+            into a monthly payment. The mortgage version adds property tax,
             insurance and PMI for a true monthly outlay. The{" "}
             <strong>Savings Goal Calculator</strong> works the other way,
             compounding your monthly contributions to tell you when you will hit
@@ -172,15 +172,17 @@ export default function LandingPage() {
 
           <h2 className="landing-about-title">Study, Maths &amp; Everyday</h2>
           <p>
-            The <strong>GPA Calculator</strong> turns letter grades and credit
-            hours into a grade point average on the 4.0 scale, with weighted
-            honours and AP support. The <strong>Percentage Calculator</strong>{" "}
-            handles percent of a number, percent change and percent difference in
-            one place. The <strong>Age Calculator</strong> and{" "}
+            The <strong>GPA Calculator</strong> turns your letter grades and
+            credit hours into a grade point average on the standard US 4.0 scale,{" "}
+            <strong>GPA = Σ(grade points × credits) ÷ Σ credits</strong>, with
+            weighted honors and AP/IB support. The{" "}
+            <strong>Percentage Calculator</strong> handles percent of a number,
+            percent change and percent difference in one place. The{" "}
+            <strong>Age Calculator</strong> and{" "}
             <strong>Date Difference Calculator</strong> do calendar-correct date
-            maths — real month lengths and leap years, not 30-day approximations
-            — and the <strong>Unit Converter</strong> covers length, weight and
-            temperature.
+            maths, using real month lengths and leap years rather than 30-day
+            approximations, and the <strong>Unit Converter</strong> covers
+            length, weight and temperature.
           </p>
 
           <h2 className="landing-about-title">Coming Soon / Roadmap</h2>
@@ -192,7 +194,7 @@ export default function LandingPage() {
             <strong>Sunscreen Timer</strong> will tell you when to reapply,
             accounting for water and sweat. For students,{" "}
             <strong>Flashcards</strong> will turn your notes into a study deck.
-            Our goal is simple — give you the numbers you need in seconds so you
+            Our goal is simple: give you the numbers you need in seconds so you
             can get on with your day.
           </p>
         </section>
