@@ -3,14 +3,14 @@ import CalorieCalculator from "@/components/CalorieCalculator";
 import { CALORIE_FAQ } from "@/lib/calories";
 
 export const metadata: Metadata = {
-  title: "Calorie Calculator — Daily Intake, Cutting & Bulking Planner",
+  title: "Calorie Calculator: Daily Intake, Cutting & Bulking Planner",
   description:
     "Calculate your daily calorie needs with the Mifflin-St Jeor formula, then plan a cut or bulk. Get your BMR, TDEE, target calories, and a projected goal date.",
   alternates: {
     canonical: "https://calcsuite.app/calorie-calculator",
   },
   openGraph: {
-    title: "Calorie Calculator — Daily Intake, Cutting & Bulking Planner",
+    title: "Calorie Calculator: Daily Intake, Cutting & Bulking Planner",
     description:
       "Calculate your daily calorie needs (BMR and TDEE) and plan a cut or bulk with a projected goal date.",
     url: "https://calcsuite.app/calorie-calculator",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "CalcSuite",
   },
   twitter: {
-    title: "Calorie Calculator — Daily Intake, Cutting & Bulking Planner",
+    title: "Calorie Calculator: Daily Intake, Cutting & Bulking Planner",
     description:
       "Calculate your daily calorie needs (BMR and TDEE) and plan a cut or bulk with a projected goal date.",
   },

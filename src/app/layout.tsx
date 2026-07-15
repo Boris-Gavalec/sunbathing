@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://calcsuite.app"),
   title: {
-    default: "CalcSuite — Free BMI, GPA, Calorie & Sunbathing Calculators",
+    default: "CalcSuite: Free BMI, GPA, Calorie & Sunbathing Calculators",
     template: "%s | CalcSuite",
   },
   description:
-    "Free, fast online calculators for health and education — safe sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just answers.",
+    "Free, fast online calculators for health and education, covering safe sun exposure, daily calories, BMI, and GPA. No sign-up, no fluff, just answers.",
   keywords: [
     "online calculators",
     "free calculators",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     canonical: "https://calcsuite.app",
   },
   openGraph: {
-    title: "CalcSuite — Free Online Calculators",
+    title: "CalcSuite: Free Online Calculators",
     description:
-      "Free, fast online calculators — from safe sun exposure to daily calorie targets. No sign-up, no fluff, just answers.",
+      "Free, fast online calculators, from safe sun exposure to daily calorie targets. No sign-up, no fluff, just answers.",
     type: "website",
     locale: "en_US",
     siteName: "CalcSuite",
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CalcSuite — Free Online Calculators",
+    title: "CalcSuite: Free Online Calculators",
     description:
-      "Free, fast online calculators — from safe sun exposure to daily calorie targets.",
+      "Free, fast online calculators, from safe sun exposure to daily calorie targets.",
   },
   robots: {
     index: true,

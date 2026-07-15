@@ -111,7 +111,7 @@ export default function UvChart({
           </h2>
           {isSynthetic && (
             <span className="text-[10px] px-2 py-0.5 rounded mt-1 inline-block bg-[rgba(0,0,0,0.05)]" style={{ color: "var(--text-secondary)" }}>
-              Sample curve — click Check My UV to use your location
+              Sample curve. Click Check My UV to use your location
             </span>
           )}
           {!isSynthetic && isEstimated && (

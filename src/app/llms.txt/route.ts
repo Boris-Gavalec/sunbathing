@@ -14,7 +14,7 @@ export function GET() {
   const lines = [
     "# CalcSuite",
     "",
-    "> Free, fast online calculators for health and education — safe sun " +
+    "> Free, fast online calculators for health and education, covering safe sun " +
       "exposure, daily calories, BMI, and GPA. No sign-up, no account, just a " +
       "clear answer backed by a transparent formula.",
     "",

@@ -207,7 +207,7 @@ export default function GpaCalculator() {
       <div className="space-y-2">
         {rows.length === 0 && (
           <p className="text-sm py-2" style={{ color: "var(--text-secondary)" }}>
-            No courses yet — add one to get started.
+            No courses yet. Add one to get started.
           </p>
         )}
         {rows.map((row, i) => (
@@ -367,7 +367,7 @@ export default function GpaCalculator() {
               The formula
             </h3>
             <p className="mb-3">
-              Every letter grade maps to grade points on the standard US 4.0 scale — A = 4.0, B = 3.0,
+              Every letter grade maps to grade points on the standard US 4.0 scale: A = 4.0, B = 3.0,
               C = 2.0, D = 1.0, F = 0, with plus/minus steps of 0.3 in between. Each course contributes
               its grade points multiplied by its credit hours (its <em>quality points</em>), and your
               GPA is <strong>total quality points ÷ total credits</strong>. A 3-credit A and a 4-credit
@@ -381,7 +381,7 @@ export default function GpaCalculator() {
               Many high schools reward harder courses with bonus points: +0.5 for Honors and +1.0 for AP
               or IB classes, so an A in AP Calculus counts as 5.0 instead of 4.0. Switch to the weighted
               scale and tag each course to see this. Failing grades never receive a bonus, and colleges
-              usually recalculate an unweighted GPA anyway — so check both numbers.
+              usually recalculate an unweighted GPA anyway, so check both numbers.
             </p>
 
             <h3 className="text-base font-semibold mt-6 mb-2" style={{ color: "var(--foreground)" }}>
@@ -409,7 +409,7 @@ export default function GpaCalculator() {
 
           <footer className="text-center py-4 text-xs" style={{ color: "var(--text-secondary)" }}>
             <p>
-              Grading scales and weighting policies vary between schools — always confirm how your
+              Grading scales and weighting policies vary between schools, so always confirm how your
               institution calculates GPA. This tool uses the most common US conventions.
             </p>
           </footer>

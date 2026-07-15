@@ -5,14 +5,14 @@ import SeoContent from "@/components/SeoContent";
 import FaqSection from "@/components/FaqSection";
 
 export const metadata: Metadata = {
-  title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
+  title: "Sunbathing Calculator: Safe Sun Exposure by Skin Type & SPF",
   description:
     "Enter your Fitzpatrick skin type, SPF value, and UV index to calculate your maximum safe sunbathing time. Live UV data from Open-Meteo.",
   alternates: {
     canonical: "https://calcsuite.app/calculator",
   },
   openGraph: {
-    title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
+    title: "Sunbathing Calculator: Safe Sun Exposure by Skin Type & SPF",
     description:
       "Calculate your maximum safe sunbathing time from your skin type, SPF, and the live UV index.",
     url: "https://calcsuite.app/calculator",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "CalcSuite",
   },
   twitter: {
-    title: "Sunbathing Calculator — Safe Sun Exposure by Skin Type & SPF",
+    title: "Sunbathing Calculator: Safe Sun Exposure by Skin Type & SPF",
     description:
       "Calculate your maximum safe sunbathing time from your skin type, SPF, and the live UV index.",
   },
@@ -85,7 +85,7 @@ const faqJsonLd = {
       name: "Should I avoid the sun completely?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No — moderate sun exposure is beneficial for vitamin D production. The goal is to enjoy the sun safely. Know your limits based on your skin type, use sunscreen when needed, seek shade during peak hours (10 AM to 4 PM), and monitor the UV index.",
+        text: "No. Moderate sun exposure is beneficial for vitamin D production. The goal is to enjoy the sun safely. Know your limits based on your skin type, use sunscreen when needed, seek shade during peak hours (10 AM to 4 PM), and monitor the UV index.",
       },
     },
   ],
