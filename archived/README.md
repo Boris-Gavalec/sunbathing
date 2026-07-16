@@ -13,14 +13,17 @@ left in place, so no supporting code was removed.
 
 ## Currently archived
 
-| Page                     | Route                        |
-| ------------------------ | ---------------------------- |
-| Tip Calculator           | `/tip-calculator`            |
-| Discount Calculator      | `/discount-calculator`       |
-| Savings Goal Calculator  | `/savings-goal-calculator`   |
-| Percentage Calculator    | `/percentage-calculator`     |
-| Age Calculator           | `/age-calculator`            |
-| Unit Converter           | `/unit-converter`            |
+| Page                        | Route                         |
+| --------------------------- | ----------------------------- |
+| Tip Calculator              | `/tip-calculator`             |
+| Discount Calculator         | `/discount-calculator`        |
+| Savings Goal Calculator     | `/savings-goal-calculator`    |
+| Percentage Calculator       | `/percentage-calculator`      |
+| Age Calculator              | `/age-calculator`             |
+| Unit Converter              | `/unit-converter`             |
+| Loan Calculator             | `/loan-calculator`            |
+| Mortgage Calculator         | `/mortgage-calculator`        |
+| Date Difference Calculator  | `/date-difference-calculator` |
 
 ## How to revive a page
 
@@ -39,10 +42,11 @@ To bring one back, do both steps for that page:
 That's all. The nav, footer, landing page, sitemap, `llms.txt`, and JSON-LD all
 read from `CALCULATORS`, so the page reappears everywhere automatically.
 
-> Note: reviving the **Percentage Calculator** also brings back the **Math**
-> category, which is currently hidden because it has no live calculators. The
-> nav, footer, and landing grid skip empty categories on their own, so no extra
-> change is needed.
+> Note: the **Financial**, **Math**, and **Utility** categories are currently
+> hidden because every calculator in them has been archived. Reviving a page
+> from one of those categories brings the category heading back automatically —
+> the nav, footer, and landing grid skip empty categories on their own, so no
+> extra change is needed.
 
 ## To archive another page later
 

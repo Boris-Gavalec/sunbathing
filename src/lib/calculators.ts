@@ -103,30 +103,6 @@ export const CALCULATORS: CalculatorEntry[] = [
     comingSoon: true,
   },
 
-  // ── Financial ──
-  {
-    name: "Loan Calculator",
-    emoji: "🏦",
-    href: "/loan-calculator",
-    category: "finance",
-    description: "Monthly EMI, total interest, and total repaid.",
-  },
-  {
-    name: "Mortgage Calculator",
-    emoji: "🏠",
-    href: "/mortgage-calculator",
-    category: "finance",
-    description: "Full monthly payment with tax, insurance, and PMI.",
-  },
-
-  // ── Utility ──
-  {
-    name: "Date Difference Calculator",
-    emoji: "📅",
-    href: "/date-difference-calculator",
-    category: "utility",
-    description: "Days between two dates, or a countdown to one.",
-  },
 ];
 
 /**
@@ -186,5 +162,26 @@ export const ARCHIVED_CALCULATORS: CalculatorEntry[] = [
     href: "/unit-converter",
     category: "utility",
     description: "Length, weight, and temperature — converted instantly.",
+  },
+  {
+    name: "Loan Calculator",
+    emoji: "🏦",
+    href: "/loan-calculator",
+    category: "finance",
+    description: "Monthly EMI, total interest, and total repaid.",
+  },
+  {
+    name: "Mortgage Calculator",
+    emoji: "🏠",
+    href: "/mortgage-calculator",
+    category: "finance",
+    description: "Full monthly payment with tax, insurance, and PMI.",
+  },
+  {
+    name: "Date Difference Calculator",
+    emoji: "📅",
+    href: "/date-difference-calculator",
+    category: "utility",
+    description: "Days between two dates, or a countdown to one.",
   },
 ];

@@ -21,8 +21,16 @@ The **registry is the source of truth**. `src/lib/calculators.ts` is consumed by
 - `src/components/SiteFooter.tsx` — the sitemap footer rendered on every page
 - `src/app/page.tsx` — the landing page card grid + the `ItemList` JSON-LD + the hero counts
 - `src/app/sitemap.ts` — the XML sitemap (auto-excludes `comingSoon` entries)
+- `src/app/llms.txt/route.ts` — the `llms.txt` guide for AI crawlers
 
 So you never touch the nav, footer or sitemap by hand — register the calculator and they follow.
+
+Two registry details worth knowing:
+- A **category with no live entries is skipped** everywhere (nav, footer, landing grid),
+  so archiving the last calculator in a category makes its heading disappear rather than
+  render empty. Adding one back brings the heading back — nothing else to do.
+- The same file also exports `ARCHIVED_CALCULATORS`, a dormant list of pages taken
+  offline. See [Archiving a calculator](#archiving-a-calculator) below.
 
 ---
 
@@ -133,6 +141,36 @@ XML sitemap now all include it.
 
 ---
 
+## Archiving a calculator
+
+Sometimes a calculator needs to come **offline without being deleted** — pulled
+from the site but kept so it can be revived later. The mechanism is the mirror
+image of adding one, and it leaves the component and lib files untouched:
+
+1. **Take the route offline.** Move its folder out of `src/app/` into
+   `archived/app/`, which Next.js does not serve (the URL then returns 404):
+
+   ```sh
+   git mv src/app/tip-calculator archived/app/tip-calculator
+   ```
+
+   `archived/` is excluded in `tsconfig.json`, so the parked page is not compiled
+   and can never break a build while dormant.
+
+2. **Move the registry entry.** In `src/lib/calculators.ts`, move that page's
+   object from `CALCULATORS` into `ARCHIVED_CALCULATORS`. It then drops out of the
+   nav, footer, landing grid, sitemap, `llms.txt`, and JSON-LD automatically.
+
+3. **Update the copy and the record.** Trim any mention of the page from the
+   landing about-copy in `src/app/page.tsx`, and add a row to the table in
+   `archived/README.md`.
+
+Leave the page's `src/components/<Name>Calculator.tsx` and `src/lib/<name>.ts`
+in place — reviving is then just reversing steps 1 and 2. Full revive steps live
+in `archived/README.md`.
+
+---
+
 ## Analytics & site tags (automatic — never add these per page)
 
 The **Google tag (gtag.js / GA4, `G-0TDBM57DMP`)**, the **Google AdSense account meta tag**,
@@ -184,21 +222,21 @@ a known exception, not the pattern to follow.
 `src/lib/seo.ts`, and `calculatorJsonLd()` + `<JsonLd />` for the structured data:
 
 ```ts
-const PATH = "/tip-calculator";
+const PATH = "/bmi-calculator";
 
 export const metadata = calculatorMetadata({
-  title: "Tip Calculator: Split a Bill and Work Out the Tip",   // ~50-60 chars
+  title: "BMI Calculator: Body Mass Index and Healthy Weight",  // ~50-60 chars
   description: "…",                                             // ~120-160 chars
   social: "…",                                                  // optional shorter card copy
   path: PATH,
 });
 
 const schema = calculatorJsonLd({
-  name: "Tip Calculator",
+  name: "BMI Calculator",
   path: PATH,
-  applicationCategory: "FinanceApplication",  // or HealthApplication / EducationalApplication / UtilitiesApplication
+  applicationCategory: "HealthApplication",  // or FinanceApplication / EducationalApplication / UtilitiesApplication
   description: "…",
-  faq: TIP_FAQ,
+  faq: BMI_FAQ,
 });
 
 // in the component:

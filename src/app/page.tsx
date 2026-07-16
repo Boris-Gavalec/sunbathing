@@ -158,24 +158,12 @@ export default function LandingPage() {
             speed, time and distance.
           </p>
 
-          <h2 className="landing-about-title">Money</h2>
-          <p>
-            The <strong>Loan Calculator</strong> and{" "}
-            <strong>Mortgage Calculator</strong> both use the standard
-            amortisation formula to turn a principal, an interest rate and a term
-            into a monthly payment. The mortgage version adds property tax,
-            insurance and PMI for a true monthly outlay.
-          </p>
-
-          <h2 className="landing-about-title">Study &amp; Everyday</h2>
+          <h2 className="landing-about-title">Study</h2>
           <p>
             The <strong>GPA Calculator</strong> turns your letter grades and
             credit hours into a grade point average on the standard US 4.0 scale,{" "}
             <strong>GPA = Σ(grade points × credits) ÷ Σ credits</strong>, with
-            weighted honors and AP/IB support. The{" "}
-            <strong>Date Difference Calculator</strong> does calendar-correct
-            date maths, using real month lengths and leap years rather than
-            30-day approximations.
+            weighted honors and AP/IB support.
           </p>
 
           <h2 className="landing-about-title">Coming Soon / Roadmap</h2>
