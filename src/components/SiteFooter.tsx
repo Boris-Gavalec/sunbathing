@@ -15,7 +15,9 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer-inner">
         <div className="site-footer-grid">
-          {CATEGORIES.map((category) => (
+          {CATEGORIES.filter((category) =>
+            CALCULATORS.some((calc) => calc.category === category.id),
+          ).map((category) => (
             <div key={category.id} className="site-footer-col">
               <h2 className="site-footer-heading">{category.label}</h2>
               <ul className="site-footer-list">

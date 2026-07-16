@@ -14,6 +14,12 @@ function entriesFor(category: CalculatorCategory): CalculatorEntry[] {
   return CALCULATORS.filter((calc) => calc.category === category);
 }
 
+// A category with no live calculators (e.g. once every entry in it has been
+// archived) renders nothing rather than an empty dropdown or heading.
+const VISIBLE_CATEGORIES = CATEGORIES.filter(
+  (category) => entriesFor(category.id).length > 0,
+);
+
 /** One calculator row, shared by the desktop dropdowns and the mobile sheet.
  *  Coming-soon entries are inert text rather than links to nowhere. */
 function MenuItem({ calc, onNavigate }: { calc: CalculatorEntry; onNavigate: () => void }) {
@@ -124,7 +130,7 @@ export default function SiteNav() {
         {/* Desktop: one dropdown per category. Hidden under 768px, where five
             of these would never fit. */}
         <div className="site-nav-categories">
-          {CATEGORIES.map((category) => (
+          {VISIBLE_CATEGORIES.map((category) => (
             <CategoryMenu
               key={category.id}
               label={category.label}
@@ -151,7 +157,7 @@ export default function SiteNav() {
           </button>
           {mobileOpen && (
             <div className="site-nav-menu site-nav-menu-sheet" role="menu">
-              {CATEGORIES.map((category) => (
+              {VISIBLE_CATEGORIES.map((category) => (
                 <div key={category.id}>
                   <span className="site-nav-menu-header">{category.label}</span>
                   {entriesFor(category.id).map((calc) => (

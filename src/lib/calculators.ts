@@ -105,6 +105,47 @@ export const CALCULATORS: CalculatorEntry[] = [
 
   // ── Financial ──
   {
+    name: "Loan Calculator",
+    emoji: "🏦",
+    href: "/loan-calculator",
+    category: "finance",
+    description: "Monthly EMI, total interest, and total repaid.",
+  },
+  {
+    name: "Mortgage Calculator",
+    emoji: "🏠",
+    href: "/mortgage-calculator",
+    category: "finance",
+    description: "Full monthly payment with tax, insurance, and PMI.",
+  },
+
+  // ── Utility ──
+  {
+    name: "Date Difference Calculator",
+    emoji: "📅",
+    href: "/date-difference-calculator",
+    category: "utility",
+    description: "Days between two dates, or a countdown to one.",
+  },
+];
+
+/**
+ * Archived calculators.
+ *
+ * These pages have been taken offline: their entries are kept out of
+ * `CALCULATORS` so they never appear in the nav, footer, landing grid, sitemap,
+ * llms.txt, or JSON-LD, and their route folders have been moved out of
+ * `src/app` into `archived/app` so the URLs no longer resolve.
+ *
+ * Nothing here is rendered or built — it is a dormant record kept so the pages
+ * can be revived at any time. To revive one, see `archived/README.md`:
+ *   1. move its folder from `archived/app/<route>` back to `src/app/<route>`;
+ *   2. move its matching entry below back into `CALCULATORS`, in its category.
+ * The page's component and lib modules were left in place, so no other change
+ * is needed.
+ */
+export const ARCHIVED_CALCULATORS: CalculatorEntry[] = [
+  {
     name: "Tip Calculator",
     emoji: "💵",
     href: "/tip-calculator",
@@ -119,28 +160,12 @@ export const CALCULATORS: CalculatorEntry[] = [
     description: "Sale price and what you actually save.",
   },
   {
-    name: "Loan Calculator",
-    emoji: "🏦",
-    href: "/loan-calculator",
-    category: "finance",
-    description: "Monthly EMI, total interest, and total repaid.",
-  },
-  {
-    name: "Mortgage Calculator",
-    emoji: "🏠",
-    href: "/mortgage-calculator",
-    category: "finance",
-    description: "Full monthly payment with tax, insurance, and PMI.",
-  },
-  {
     name: "Savings Goal Calculator",
     emoji: "🎯",
     href: "/savings-goal-calculator",
     category: "finance",
     description: "How long until you reach your savings target.",
   },
-
-  // ── Math ──
   {
     name: "Percentage Calculator",
     emoji: "🔢",
@@ -148,8 +173,6 @@ export const CALCULATORS: CalculatorEntry[] = [
     category: "math",
     description: "Percent of a number, percent change, and difference.",
   },
-
-  // ── Utility ──
   {
     name: "Age Calculator",
     emoji: "🎂",
@@ -163,12 +186,5 @@ export const CALCULATORS: CalculatorEntry[] = [
     href: "/unit-converter",
     category: "utility",
     description: "Length, weight, and temperature — converted instantly.",
-  },
-  {
-    name: "Date Difference Calculator",
-    emoji: "📅",
-    href: "/date-difference-calculator",
-    category: "utility",
-    description: "Days between two dates, or a countdown to one.",
   },
 ];
